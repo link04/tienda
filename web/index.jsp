@@ -4,7 +4,10 @@
     Author     : Paul
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Conexion.Conectar"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% Conectar cx = new Conectar(); %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,5 +22,13 @@
         <p>jaja 22222222222222</p>
         <p>HA...ha</p>
         <p>perrraaaaaaaaaaaaaa!</p>
+        <% String con ="Select *from cliente";
+            ResultSet rs = cx.getDatos(con);
+            while(rs.next()){
+                System.out.println(rs.getString("IdCliente"));
+                System.out.println(rs.getString("Nombre"));
+                
+            }
+        %>
     </body>
 </html>
