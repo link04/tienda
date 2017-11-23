@@ -18,9 +18,9 @@ public class Conectar {
 	
 	public Conectar(){
 		this.server = "localhost:3306"; //localhost
-		this.BD = "tienda"; 		//nombre de la base de datos
+		this.BD = "programacion2";      //nombre de la base de datos
 		this.userBD = "root";		//usuario de la base de datos
-		this.passwBD = "";	//password del usuario
+		this.passwBD = "";	        //password del usuario
 	}
 	//metodo para abrir la conexion
 	public void con(){
