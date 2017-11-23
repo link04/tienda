@@ -21,6 +21,7 @@
         <p>jajaja probando</p>
         <p>jaja 22222222222222</p>
         <p>HA...ha</p>
+        <h1>ppppp</h1>
         <p>perrraaaaaaaaaaaaaa!</p>
         <% String con ="Select *from cliente";
             ResultSet rs = cx.getDatos(con);
