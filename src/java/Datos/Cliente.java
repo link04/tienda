@@ -102,7 +102,7 @@ public class Cliente {
     }
     
     public ResultSet login(){
-        String com="Select * from cliente";
+        String com="Select * from login"; //OJO A LA MALDITA TABLA
         ResultSet rs = cx.getDatos(com);
         return rs;
     }

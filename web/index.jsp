@@ -4,19 +4,19 @@
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> 
+<html class="no-js"> <!--<![endif]-->
+       <link src="img/favicon.ico" rel="icon"  />
+  
     <head>
 
         <!-- ======================= Pipeline Theme V2.4.1 ========================= -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-
-        <link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/2007/6181/files/favicon_32x32.png?v=1502232084" type="image/png">
-
         <!-- Title and description ================================================ -->
         <title>
-            CloudKid Shop &ndash; CloudStore
+            Geek-Shirt
         </title>
 
         <meta name="description" content="Official CloudKid Merchandise Shop">
@@ -35,7 +35,7 @@
         <meta property="og:site_name" content="CloudStore">
 
         <!-- Helpers ============================================================== -->
-        <link rel="canonical" href="https://cloudkid.shop/">
+ 
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="theme-color" content="#585e71">
 
@@ -55,53 +55,37 @@
 
         <div id="shopify-section-header" class="shopify-section"><div class="header__wrapper" data-section-id="header" data-section-type="header">
 
-                <header class="site-header header--large" role="banner">
-                    <div class="wrapper">
-                        <div class="nav--desktop">
+                <header  class="site-header header--large" role="banner">
+                    <div    class="wrapper">
+                        <div    class="nav--desktop">
                             <div class="mobile-wrapper">
                                 <div class="header-cart__wrapper">
                                     <a href="/cart" class="CartToggle header-cart"></a>
                                     <span class="header-cart__bubble cartCount"></span>
                                 </div>
-                                <div class="logo-wrapper logo-wrapper--image">
+                                
 
-                                    <h1 class="h4 header-logo" itemscope itemtype="http://schema.org/Organization">
-
-
-                                        <a href="/" itemprop="url">
-
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x.png?v=1494894271"
-                                                 srcset="//cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x.png?v=1494894271 1x, //cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x@2x.png?v=1494894271 2x"
-                                                 alt="CloudStore"
-                                                 class="logo-image"
-                                                 itemprop="logo">
-                                        </a>
-                                    </h1>
-
-                                </div>
+                                            <div    class="imgcontainer">
+                                                <a  href="Index">  <img style="width:25%; " src="img/geeklogo.png"   class="avatar"  > </a>
+             </div>
+                             
                                 <a href class="menuToggle header-hamburger"></a>
                             </div>
-                            <div class="header-menu nav-wrapper">
+                            <div   class="header-menu nav-wrapper">
 
                                 <ul class="main-menu accessibleNav">
 
                                     <li class="child main-menu--active kids-0">
-                                        <a href="/" class="nav-link">Home</a>
-
-                                    </li>
-
-                                    <li class="child  kids-0">
-                                        <a href="/collections/all" class="nav-link">Catalog</a>
-
-                                    </li>
-                                                     <li><a href="/search">Search</a></li>
-
-                                    <li class="cart-text-link">
-                                        <a href="/cart" class="CartToggle">
-                                            Cart
-                                            <span class="cartCost ">(<span class="money">$100.00</span>)</span>
-                                        </a>
-                                    </li>
+                                    <li class="child  kids-0"><a href="/collections/all" class="nav-link">Catalog</a> </li>
+                                    <li><a href="/search">Search</a></li>
+                                    <li class="cart-text-link"> <a href="/cart" class="CartToggle"> Cart <span class="cartCost "> <span class="money"> </span> </span></a></li>
+                                
+                                    <%Boolean validar = (Boolean) session.getAttribute("validacion");
+                                    if(validar==null){%>
+                                     <li ><a href="LogIn.jsp">Log In</a></li>
+                                    <%}  else{%>  
+                                   <li><a href="LogOut">Log Out</a></li> <%
+                                    }%>  
                                 </ul>
                             </div>
 
@@ -112,22 +96,7 @@
                                     <a href="/cart" class="CartToggle header-cart"></a>
                                     <span class="header-cart__bubble cartCount"></span>
                                 </div>
-                                <div class="logo-wrapper logo-wrapper--image">
-
-                                    <h1 class="h4 header-logo" itemscope itemtype="http://schema.org/Organization">
-                                        
-                                        <a href="/" itemprop="url">
-
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x.png?v=1494894271"
-                                                 srcset="//cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x.png?v=1494894271 1x, //cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x@2x.png?v=1494894271 2x"
-                                                 alt="CloudStore"
-                                                 class="logo-image"
-                                                 itemprop="logo">
-                                        </a>
-
-                                    </h1>
-
-                                </div>
+                           
                                 <a href class="menuToggle header-hamburger"></a>
                             </div>
                             <div class="header-menu nav-wrapper">
@@ -161,27 +130,40 @@
         </div>
 
         <main class="main-content" role="main">
-            <div class="index-sections">
-                <!-- BEGIN content_for_index --><div id="shopify-section-1502218631971" class="shopify-section"><div class="homepage-image preventOverflow use_image homepage--white" data-section-id="1502218631971" data-section-type="banner" >
+            
+            <div  class="index-sections">
 
-                        <div class="content--centered">
-                            <div class="text-center preventOverflowContent">
+                <div class="w3-content w3-section" style="max-width:500px">
+            <img class="mySlides" src=" " style="width:100%">
+            <img class="mySlides" src=" " style="width:100%">
+            <img class="mySlides" src="  " style="width:100%">
+          </div>
 
-                                <a href="">
-                                    <img src="//cdn.shopify.com/s/files/1/2007/6181/files/header3_1000x.jpg?v=1502219448" alt="" class="image--flex" />
-                                </a>
+          <script>
+          var myIndex = 0;
+          carousel();
 
-                            </div>
-                        </div>
-                        <div class="image-overlay image-overlay-0"></div>
-
-                        <img src="//cdn.shopify.com/s/files/1/2007/6181/files/whiteheader_1800x.jpg?v=1502219526" alt="CloudStore" class="responsive-wide-image"/>
-
-                    </div>
-
-
-                </div><div id="shopify-section-1497828491156" class="shopify-section">
+          function carousel() {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              for (i = 0; i < x.length; i++) {
+                 x[i].style.display = "none";  
+              }
+              myIndex++;
+              if (myIndex > x.length) {myIndex = 1}    
+              x[myIndex-1].style.display = "block";  
+              setTimeout(carousel, 2000); // Change image every 2 seconds
+          }
+          </script>
+                <!-- BEGIN content_for_index -->
+                <div id="shopify-section-1502218631971" class="shopify-section">
+                    </br>
+                   
+                    
+                    <div id="shopify-section-1497828491156" class="shopify-section">
+                    
                     <div class="homepage-collection homepage--white" data-section-id="1497828491156" data-section-type="index-collection">
+                        
                         <div class="wrapper">
 
                             <div class="grid-uniform image_autoheight_enable">

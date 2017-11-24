@@ -1,60 +1,57 @@
 <%-- 
-    Document   : registro
-    Created on : 23-nov-2017, 16:49:34
-    Author     : Paul
+    Document   : LogIn
+    Created on : Nov 23, 2017, 4:39:14 PM
+    Author     : lmfaorockthebeat2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="icon" href="img/p.png">
-        <title>JSP Page</title>
-   
-     <!-- CSS ================================================================== -->
+         <!-- CSS ================================================================== -->
         <link href="Style2.css" rel="stylesheet" type="text/css"  />
          <link href="Style.css" rel="stylesheet" type="text/css" />
           <link href="LogStyle.css" rel="stylesheet"> 
-
-
+          
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
     </head>
     <body>
-        <main>
-              <div class="imgcontainer">
-             <a  href="Index">  <img src="img/geeklogo.png"  class="avatar"  > </a>
+         <main> 
+            
+           <div class="imgcontainer">
+             <a  href="Index">  <img src="img/geeklogo.png"   class="avatar"  > </a>
              </div>
-        
-                <form action="./registro" method="post" class="modal-content animate" >
-                    
-                     <div class="container1">
+             
+            <form method="post" action="./LogIn" class="modal-content animate" >
+            
+                        <div class="container1">
 
-                          <label class="titleL"><b>Sign Up</b></label>
+                          <label class="titleL"><b>Log In</b></label>
                                     </br>
-                        <label><b>Your name</b></label>
-                        <input type="text" placeholder="Enter Name" name="name"  required  >
+                          <label> <b>Email</b></label>
 
-                        <label><b>Email</b></label>
-                        <input type="text" placeholder="Enter Email" name="email"  required>
+                          <input type="text" placeholder="Enter Username" name="uname" autocomplete="off"  required >
 
-                        <label><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="pass"  required>
+                          <label><b>Password</b></label>
 
-                        <label><b>Re-enter password</b></label>
-                        <input type="password" placeholder="Re-enter Password" name="rpass"  required>
+                          <input type="password" placeholder="Enter Password" name="psw" autocomplete="off" required>
 
-                        <button type="submit" >Create your account</button>
+                          <button  type="submit" >Log In</button>
 
-                    </div>
+                          <!-- <input type="checkbox" name="checking" checked="checked" onclick="value='unchecked'" > Remember me -->
 
-                    <div class="container1">
-                        <button type="button" class="cancelbtn" ><a href="Index" style="text-decoration: none">Cancel</a></button>
-                         ${errorMessage}
-                         <hr>
-                         Already have an account? <a class="sign" href="LogIn"  >Sign in</a>
-                    </div>
-                </form>
+                        </div>
                           <hr>
+                          <p class="center">New to this experience?</p>
+
+                        <div class="container1" >
+                            
+                          <button type="button" value="registro" > <a class="cancel" href="registro">Sign Up!!!</a></button>
+                             ${errorMessage}
+                        </div>
+        </form>
+          <hr>
                 <footer class="site-footer-wrapper" role="contentinfo" data-section-id="footer" data-section-type="footer" itemscope itemtype="http://schema.org/Organization">
 
                     <div class="wrapper site-footer">
@@ -80,7 +77,11 @@
                         </div>
                     </div>
            </footer>
-                       
-          </main>
+            </main>  
+            
+             
     </body>
+    
+    
+    
 </html>
