@@ -85,8 +85,8 @@ public class Cliente {
         this.Pass = Pass;
     }
     
-    public void  registrar_cliente(){
-        Cliente p = new Cliente();
+    public void  registrar_cliente(Cliente p){
+        
 		cx.con(); //ABRIMOS LAS CONEXION
 		String com = "INSERT INTO cliente (Nombre,Email,Pass) "+
 						"VALUES ('"+p.getNombre()+"','"+
