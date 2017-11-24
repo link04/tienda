@@ -6,7 +6,7 @@ h2{
     margin-left: 45%; 
     color: #060A0E;
 }
-a{
+.can{
     color: white;
     
 }
@@ -79,8 +79,8 @@ span.psw {
     float: right;
     padding-top: 16px;
 }
-a{
-    color:black;
+.sig{
+    color:blue;
 }
 
 /* Change styles for span and cancel button on extra small screens */

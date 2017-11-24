@@ -102,7 +102,7 @@ public class Cliente {
     }
     
     public ResultSet login(){
-        String com="Select Email, Pass from cliente";
+        String com="Select * from cliente";
         ResultSet rs = cx.getDatos(com);
         return rs;
     }

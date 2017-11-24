@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -93,19 +95,20 @@ public class registro extends HttpServlet {
 	p.setEmail(email);
 	p.setPass(pass);
         if(pass.equals(rpass)){
-            cx.con();
-            String com = "INSERT INTO cliente (,Nombre,Email,Pass) "+
-                    "VALUES ('"+p.getNombre()+"','"+
-                    p.getEmail()+"','"+
-                    p.getPass()+"')"; //hacemos la consulta SQL
-            int res = cx.execQuery(com); //ejecutamos la consulta
-            cx.desconectar(); //cerramos la conexion
-            //System.out.println(p);
-            System.out.println("Llego a la clase Cliente-MODELO "+com);
+            p.registrar_cliente(p);
         }else{
             request.setAttribute("errorMessage","<script>alert(\"Passwords don't match!\\Please try again.\");</script>");
                     RequestDispatcher view = request.getRequestDispatcher("/registro.jsp");
                     view.forward(request,response);
+        }
+        ResultSet rs = p.login();
+        try {
+            while(rs.next())
+            {
+                System.out.println(rs.getString("Email"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(registro.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
