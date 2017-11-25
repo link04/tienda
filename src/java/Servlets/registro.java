@@ -45,9 +45,6 @@ public class registro extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
-           
-        RequestDispatcher view = request.getRequestDispatcher("/registro.jsp");
-                    view.forward(request,response);
     }
 
     

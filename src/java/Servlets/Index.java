@@ -26,8 +26,9 @@ public class Index extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-         RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
-         view.forward(request,response);       
+                    
+          RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
+         view.forward(request,response);
         
     }
 
@@ -35,7 +36,10 @@ public class Index extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       
+
+          processRequest(request, response);
+         
     }
 
  

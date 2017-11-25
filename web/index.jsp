@@ -19,14 +19,14 @@
             Geek-Shirt
         </title>
 
-        <meta name="description" content="Official CloudKid Merchandise Shop">
+        <meta name="description" content="Official Geek-Shirt Shop">
 
         <!-- Product meta ========================================================= -->
         <!-- /snippets/social-meta-tags.liquid -->
 
 
         <meta property="og:type" content="website">
-        <meta property="og:title" content="CloudKid Shop">
+   
         <meta property="og:description" content="Official CloudKid Merchandise Shop">
 
         <meta property="og:description" content="Official CloudKid Merchandise Shop">
@@ -504,7 +504,9 @@
 
             </main>
 
-            <div id="shopify-section-footer" class="shopify-section"><footer class="site-footer-wrapper" role="contentinfo" data-section-id="footer" data-section-type="footer" itemscope itemtype="http://schema.org/Organization">
+            <div id="shopify-section-footer" class="shopify-section">
+                
+                <footer class="site-footer-wrapper" role="contentinfo" data-section-id="footer" data-section-type="footer" itemscope itemtype="http://schema.org/Organization">
 
                     <div class="wrapper site-footer">
             

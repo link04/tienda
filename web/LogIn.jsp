@@ -47,7 +47,7 @@
 
                         <div class="container1" >
                             
-                          <button type="button" value="registro" > <a class="cancel" href="registro">Sign Up!!!</a></button>
+                          <button type="button" value="registro" > <a class="cancel" href="registro.jsp">Sign Up!!!</a></button>
                              ${errorMessage}
                         </div>
         </form>

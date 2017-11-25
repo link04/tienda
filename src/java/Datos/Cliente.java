@@ -29,58 +29,38 @@ public class Cliente {
     }
     public Cliente(){}
 
-    /**
-     * @return the IdCliente
-     */
     public int getIdCliente() {
         return IdCliente;
     }
 
-    /**
-     * @param IdCliente the IdCliente to set
-     */
+  
     public void setIdCliente(int IdCliente) {
         this.IdCliente = IdCliente;
     }
 
-    /**
-     * @return the Nombre
-     */
     public String getNombre() {
         return Nombre;
     }
 
-    /**
-     * @param Nombre the Nombre to set
-     */
+   
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
 
-    /**
-     * @return the Email
-     */
+ 
     public String getEmail() {
         return Email;
     }
 
-    /**
-     * @param Email the Email to set
-     */
     public void setEmail(String Email) {
         this.Email = Email;
     }
 
-    /**
-     * @return the Pass
-     */
     public String getPass() {
         return Pass;
     }
 
-    /**
-     * @param Pass the Pass to set
-     */
+
     public void setPass(String Pass) {
         this.Pass = Pass;
     }
@@ -102,7 +82,7 @@ public class Cliente {
     }
     
     public ResultSet login(){
-        String com="Select * from login"; //OJO A LA MALDITA TABLA
+        String com="Select * from cliente";
         ResultSet rs = cx.getDatos(com);
         return rs;
     }

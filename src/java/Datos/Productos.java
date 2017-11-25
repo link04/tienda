@@ -126,6 +126,7 @@ public class Productos {
 		String com = "INSERT INTO producto (descripcion,size,color,cantidad,precio,image) "+
 						"VALUES ('"+p.getDescripcion()+"','"+
                                                         p.getSize()+"','"+
+                                                        p.getColor()+"',"+
                                                         p.getCantidad()+"',"+
                                                         p.getPrecio()+",'"+
 							p.getImage()+"')"; //hacemos la consulta SQL
