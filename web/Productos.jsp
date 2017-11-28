@@ -61,16 +61,16 @@
                           <label class="titleL"><b>Add Product</b></label>
                                     </br>
                         <label><b>Description</b></label>
-                        <input type="text" placeholder="Enter Product Name" name="descripcion"  required  >
+                        <input type="text" placeholder="Enter Product Name" autocomplete="off" name="descripcion"  required  >
 
                         <label><b>Size</b></label>
-                        <input type="text" placeholder="Enter Size XS, S, M, L, XL, XXL" name="size" maxlength="3" required>
+                        <input type="text" placeholder="Enter Size XS, S, M, L, XL, XXL" autocomplete="off" name="size" maxlength="3" required>
 
                         <label><b>Quantity</b></label>
-                        <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Enter Quantity" name="cantidad" required>
+                        <input type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off" placeholder="Enter Quantity" name="cantidad" required>
 
                         <label><b>Price</b></label>
-                        <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Enter Price" name="precio" required>
+                        <input type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off" placeholder="Enter Price" name="precio" required>
 
                         <button type="submit" >Post Product</button>
                             ${uploaded}

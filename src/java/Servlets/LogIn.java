@@ -19,11 +19,14 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import Datos.Cliente;
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -53,20 +56,100 @@ public class LogIn extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
-            String uname= request.getParameter("uname");
-            String psw= request.getParameter("psw");
                 
             Cliente p = new Cliente();
-              String user;
-               String pass;
-        try {
+                       
+		  String uname= request.getParameter("uname");
+		  String psw= request.getParameter("psw");
+		 
+		  String admin1="1";	
+	    		
+		ResultSet rs = p.login();		
+                 
+                try {
+                    while(rs.next()){
+                        
+                        String email = rs.getString("email");
+                        String pass = rs.getString("pass");
+                        String admin =rs.getString("admin");
+                 
+                        
+                        if(uname.equals(email) && psw.equals(pass))
+                        {
+                            response.sendRedirect("Index");
+                            
+                            if(admin.equals(admin1))
+                            {
+                                
+                                HttpSession session = request.getSession();
+                                Boolean validarAdmin = true;
+                                Boolean validar = null;
+                                session.setAttribute("validacionAdmin", validarAdmin);
+                                session.setAttribute("validacion", validar);
+                               
+                                
+                            }
+                            else {
+                                HttpSession session = request.getSession();
+                                Boolean validar = true;
+                                Boolean validarAdmin = null;
+                                session.setAttribute("validacion", validar);
+                                session.setAttribute("validacionAdmin", validarAdmin);
+                              
+                            }
+                            return;
+                        }
+                        }
+                                request.setAttribute("errorMessage", "<script>alert(\"Usuario o contrasena incorrecta!.\");</script>");
+                                RequestDispatcher view = getServletContext().getRequestDispatcher("/LogIn.jsp");
+                                view.forward(request,response);
+                                doGet(request, response);
+					      
+					}catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (SQLException ex) { 
+            Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+		}
+}
+    
+
+        // TODO Auto-generated catch block
+        /*try {
+        ResultSet rs = p.login();
+        while(rs.next()){
+        user = rs.getString("email");
+        pass = rs.getString("pass");
+        System.out.print(user);System.out.print(pass);
+        if (uname.equals("email") && psw.equals("pass"))
+        {
+        javax.servlet.http.HttpSession session = request.getSession();
+        Boolean validar = true;
+        session.setAttribute("validacion", validar);
+        }
+        else
+        {
+        request.setAttribute("errorMessage", " <script>alert(\"Incorrect user or password used!\\Please try again.\");</script>");
+        response.sendRedirect("LogIn.jsp");
+        doGet(request, response);
+        }
+        }} catch (SQLException ex) {
+        Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);  }
+         */ 
+                             
+				  	  
+        /*try {
             ResultSet rs = p.login();
             
             while(rs.next()){
                 
                  user = rs.getString("email");
                  pass = rs.getString("pass");
+                 
+                 
+                 
+                 
                     System.out.print(user);System.out.print(pass);
                   
                        if (uname.equals("email") && psw.equals("pass"))
@@ -87,12 +170,8 @@ public class LogIn extends HttpServlet {
             }} catch (SQLException ex) {
             Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);  }
             
-              
-            } 
-        
-       
-    }
-
+              */
+     
     
 
 

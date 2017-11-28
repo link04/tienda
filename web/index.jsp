@@ -1,10 +1,6 @@
 
 <!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> 
+
 <html class="no-js"> <!--<![endif]-->
        <link src="img/favicon.ico" rel="icon"  />
   
@@ -48,7 +44,10 @@
 
         <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/20076181/digital_wallets/dialog" />
 
-   
+       <% 
+      Boolean validar=(Boolean) session.getAttribute("validacion");
+     Boolean validarAdmin=(Boolean) session.getAttribute("validacionAdmin");
+	   %> 
     </head>
 
     <body id="cloudkid-shop" class="template-index" >
@@ -57,7 +56,7 @@
 
                 <header  class="site-header header--large" role="banner">
                     <div    class="wrapper">
-                        <div    class="nav--desktop">
+                        <div   class="nav--desktop">
                             <div class="mobile-wrapper">
                                 <div class="header-cart__wrapper">
                                     <a href="/cart" class="CartToggle header-cart"></a>
@@ -80,12 +79,19 @@
                                     <li><a href="/search">Search</a></li>
                                     <li class="cart-text-link"> <a href="/cart" class="CartToggle"> Cart <span class="cartCost "> <span class="money"> </span> </span></a></li>
                                 
-                                    <%Boolean validar = (Boolean) session.getAttribute("validacion");
-                                    if(validar==null){%>
-                                     <li ><a href="LogIn.jsp">Log In</a></li>
-                                    <%}  else{%>  
-                                   <li><a href="LogOut">Log Out</a></li> <%
-                                    }%>  
+                                <% if(validar==null && validarAdmin==null ){ %>
+                                <li ><a href="LogIn.jsp">Log In</a></li>
+                                
+                                <%}
+                                  else if(validar==null && validarAdmin!=null ) { %> 
+                                  <li><a href="Productos.jsp">Add Product</a></li> 
+                                  <li><a  href="LogOut">Log Out</a></li> 
+                               
+                                  <% }  else if( validar!=null){ %>
+                                    <li><a href="LogOut">Log Out</a></li>
+
+                                   <%}%>   
+                                    
                                 </ul>
                             </div>
 

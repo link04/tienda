@@ -31,17 +31,75 @@ public class ProductPost extends HttpServlet {
      Conectar cx = new Conectar();
     Productos p = new Productos();
    // int idProd;
-    String descripcion;
-    String size;
-    String color;
-    int cantidad;
-    Double precio;
-    String image;
+    String descripcion1;
+    String size1;
+    String color1;
+    int cantidad1;
+    Double precio1;
+    String image1;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+        
+       /* descripcion = request.getParameter("descripcion");
+        size = request.getParameter("size");
+        color = request.getParameter("color");
+        cantidad = Integer.parseInt( request.getParameter("cantidad"));
+        precio = Double.parseDouble(request.getParameter("precio"));*/
+        
+         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+
+         
+        
+        DiskFileItemFactory factory = new DiskFileItemFactory();
+        ServletFileUpload upload = new ServletFileUpload(factory);
+        try {
+            // Parse the request
+            List <FileItem> items = upload.parseRequest(request);
+            for(FileItem item:items){
+                   
+                if(!item.isFormField()){
+               
+                    File uploadedFile = new File("C:\\Users\\nel_a\\Desktop\\tienda\\web\\img");
+                    File file = File.createTempFile("img",".jpg",uploadedFile);
+                    String fileName = new File(file.getName()).getName();
+                    String filePath = "img" + File.separator + fileName;
+                    System.out.println(filePath);
+                    // saves the file to upload directory
+                    item.write(file);
+                   p.setImage(filePath);
+                }
+                else{
+                    
+            //generador de error en output
+                    
+                descripcion1 = item.getString("descripcion");
+                size1 = item.getString("size");
+                color1 = item.getString("color");
+                cantidad1 = Integer.parseInt( item.getString("cantidad"));
+                precio1 = Double.parseDouble( item.getString("precio"));
+
+
+                System.out.println(cantidad1);
+                    
+                    p.setDescripcion(descripcion1);
+                    p.setSize(size1);
+                    p.setColor(color1);
+                    p.setCantidad(cantidad1);
+                    p.setPrecio(precio1);
+                    p.registrar_prod(p);
+                   }
+                }
+        } catch (FileUploadException ex) {
+            throw new ServletException(ex);
+        } catch (Exception ex) {
+            Logger.getLogger(ProductPost.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+       request.setAttribute("uploaded","<script>alert(\"Product Posted Succesfully!\");</script>");
+                    RequestDispatcher view = request.getRequestDispatcher("/Productos.jsp");
+                    view.forward(request,response);
+                    
     }
 
  
@@ -60,69 +118,11 @@ public class ProductPost extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        System.out.println( request.getAttribute("descripcion"));
-        
-        descripcion = request.getParameter("descripcion");
-        size = request.getParameter("size");
-        color = request.getParameter("color");
-        cantidad = Integer.parseInt( request.getParameter("cantidad"));
-        precio = Double.parseDouble(request.getParameter("precio"));
-        
-         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-
-        if (!isMultipart) {
-            return;
-        }
-        DiskFileItemFactory factory = new DiskFileItemFactory();
-        ServletFileUpload upload = new ServletFileUpload(factory);
-        try {
-            // Parse the request
-            List <FileItem> items = upload.parseRequest(request);
-            for(FileItem item:items){
-                   
-                descripcion = item.getString("descripcion");
-                size = item.getString("size");
-                color = item.getString("color");
-                cantidad = Integer.parseInt( item.getString("cantidad"));
-                precio = Double.parseDouble( item.getString("precio"));
-        
-                    File uploadedFile = new File("C:\\Users\\nel_a\\Desktop\\tienda\\web\\img");
-                    File file = File.createTempFile("img",".jpg",uploadedFile);
-                    String fileName = new File(file.getName()).getName();
-                    String filePath = "img" + File.separator + fileName;
-                    System.out.println(filePath);
-                    // saves the file to upload directory
-                    item.write(file);
-                    System.out.println(cantidad);
-                    
-                    p.setDescripcion(descripcion);
-                    p.setSize(size);
-                    p.setColor(color);
-                    p.setCantidad(cantidad);
-                    p.setPrecio(precio);
-                    p.setImage(filePath);
-                    p.registrar_prod(p);
-
-                }
-        } catch (FileUploadException ex) {
-            throw new ServletException(ex);
-        } catch (Exception ex) {
-            Logger.getLogger(ProductPost.class.getName()).log(Level.SEVERE, null, ex);
-        } 
         
         
-       
-        
-	
-        
-            request.setAttribute("uploaded","<script>alert(\"Product Posted Succesfully!\");</script>");
-                    RequestDispatcher view = request.getRequestDispatcher("/Productos.jsp");
-                    view.forward(request,response);
       }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
+
+    
 }

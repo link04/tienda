@@ -51,7 +51,7 @@
                         <button type="button" class="cancelbtn" ><a href="Index" style="text-decoration:none;color:white;" >Cancel</a></button>
                          ${errorMessage}
                          <hr>
-                         Already have an account? <a class="sign" href="LogIn"  >Sign in</a>
+                         Already have an account? <a class="sign" href="LogIn.jsp" >Sign in</a>
                     </div>
                 </form>
                           <hr>
