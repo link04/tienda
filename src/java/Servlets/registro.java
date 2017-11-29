@@ -64,7 +64,7 @@ public class registro extends HttpServlet {
         pass = request.getParameter("pass");
         rpass = request.getParameter("rpass");
         
-        
+        //probando
 	p.setNombre(name);
 	p.setEmail(email);
 	p.setPass(pass);
