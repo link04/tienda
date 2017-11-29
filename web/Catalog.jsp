@@ -18,13 +18,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-
-    <link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/2007/6181/files/favicon_32x32.png?v=1502232084" type="image/png">
-
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAADr6eYA//78AEAtGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEiIiIRIiIiEiIiIiIiIiIiIiIiIiIiIiIiIAAAAAIiIiIAERERESIiIgEiIiIRIiIiASIRIhEiISIBIhEiESIRIgEiERERIhIiASIiIiIiIiIBIiIiIiIiIgERERERIiIiIREREREiIiIiIiIiIiIiIiIiIiIiIiEiIiIRIiIiEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+  
 
     <!-- Title and description ================================================ -->
     <title>
-        All &ndash; CloudStore
+        Geek-Shirt
     </title>
 
     <!-- Product meta ========================================================= -->
@@ -110,26 +109,29 @@
       Boolean validar=(Boolean) session.getAttribute("validacion");
      Boolean validarAdmin=(Boolean) session.getAttribute("validacionAdmin");
 	   %> 
-</head>
+    </head>
 
-<body id="all" class="template-collection" >
+    <body id="cloudkid-shop" class="template-index" >
 
-    <div id="shopify-section-header" class="shopify-section"><div class="header__wrapper" data-section-id="header" data-section-type="header">
+        <div id="shopify-section-header" class="shopify-section"><div class="header__wrapper" data-section-id="header" data-section-type="header">
 
-            <header class="site-header header--large" role="banner">
-                <div class="wrapper">
-                    <div class="nav--desktop">
-                        <div class="mobile-wrapper">
-                            <div class="header-cart__wrapper">
-                                <a href="/cart" class="CartToggle header-cart"></a>
-                                <span class="header-cart__bubble cartCount"></span>
-                            </div>
-                            <div    class="imgcontainer">
+                <header  class="site-header header--large" role="banner">
+                    <div    class="wrapper">
+                        <div   class="nav--desktop">
+                            <div class="mobile-wrapper">
+                                <div class="header-cart__wrapper">
+                                    <a href="/cart" class="CartToggle header-cart"></a>
+                                    <span class="header-cart__bubble cartCount"></span>
+                                </div>
+                                
+
+                                            <div    class="imgcontainer">
                                                 <a  href="Index">  <img style="width:25%; " src="img/geeklogo.png"   class="avatar"  > </a>
-             </div><!--jaja-->
-                            <a href class="menuToggle header-hamburger"></a>
-                        </div>
-                        <div   class="header-menu nav-wrapper">
+             </div>
+                             
+                                <a href class="menuToggle header-hamburger"></a>
+                            </div>
+                            <div   class="header-menu nav-wrapper">
 
                                 <ul class="main-menu accessibleNav">
 
@@ -154,13 +156,7 @@
                                 </ul>
                             </div>
 
-                    </div>
-                </div>
-            </header>
-        </div>
-
-
-    </div>
+                        </div>
 
     <main class="main-content" role="main">
         <div id="shopify-section-collection" class="shopify-section"><!-- /sections/collection.liquid --><div data-section-id="collection" data-section-type="collection">
@@ -175,47 +171,45 @@
                         </div>
                     </div>
 
-                    <%
-                        try {
-                            ResultSet rs = product.select();
-                 while (rs.next()) {%>
+                   <div id="shopify-section-index-collection" class="shopify-section">
+                        <div class="homepage-collection homepage--white" data-section-id="index-collection" data-section-type="index-collection">
+                            <div class="wrapper">
 
-                    <div class="wrapper" >
+                                <div class="grid-uniform image_autoheight_enable">
 
-                        <div class="page-margin grid collection-sidebar" >
+                                              <% try {ResultSet rs =product.select();while (rs.next()) {%>
+                                    <div class="grid__item  small--one-half medium--one-half large--one-quarter  product-grid-item">
+                                      
+                                        <div class="figcaption hover text-center">
+                                            <a href="/collections/number-1/products/cloudkid-shirt-black">
+                                                <p class="h6 name_wrapper">
+                                                    <a href="/collections/number-1/products/cloudkid-shirt-black" class="grid__image">
+                                                 <%= rs.getString("image") %>
+                                                            </a>   
+                                                    <hr>
+                                                    
+                                                    <%=rs.getString("descripcion")%>
+                                                </p>
+                                                
+                                                <p class="price_wrapper">
+                                                    <span class="price">
 
-                            <div Style="display:clear;display:inline-block" >
+                                                        <span class="money">$<%=rs.getString("precio")%></span>
+                                                    </span>
 
-                                <a href="/collections/all/products/cloudkid-necklace" class="grid__image">
+                                                </p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <%}} catch (SQLException ex) {  System.out.println("se jodio esto");} %>
+                               
+                                </div>
 
-                                    <img src=" img/witch.jpg " Style="width:300px">
-                                </a>
-                                <div class="figcaption hover text-center">
-                                    <a href="/collections/all/products/cloudkid-necklace">
-                                        <p class="h6 name_wrapper">
-                                            <%= rs.getString("descripcion")%>
-                                        </p>
-                                        <p class="price_wrapper">
-                                            <span class="price">
-
-                                                <span class="money">$ <%=rs.getString("precio")%> </span>
-                                            </span>
-
-                                        </p>
-                                    </a>
-                                </div>  
                             </div>
-
                         </div>
+
+
                     </div>
-                </div>
-
-            </div>
-
-            <% }
-             } catch (SQLException ex) {
-                 System.out.println("se jodio esto");
-             }%>
 
     </main>
 

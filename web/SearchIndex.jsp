@@ -19,10 +19,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 
-        <link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/2007/6181/files/favicon_32x32.png?v=1502232084" type="image/png">
-
+      <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAADr6eYA//78AEAtGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEiIiIRIiIiEiIiIiIiIiIiIiIiIiIiIiIiIAAAAAIiIiIAERERESIiIgEiIiIRIiIiASIRIhEiISIBIhEiESIRIgEiERERIhIiASIiIiIiIiIBIiIiIiIiIgERERERIiIiIREREREiIiIiIiIiIiIiIiIiIiIiIiEiIiIRIiIiEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+  
         <title>
-            shirt &ndash; CloudStore
+       Geek-Shirt
         </title>
 
 
@@ -52,33 +52,35 @@
 
         <meta id="in-context-paypal-metadata" data-shop-id="20076181" data-environment="production" data-locale="en_US" data-merchant-id="3H8FPF22BP6KY" data-redirect-url="" />
         
-        <% 
+       <% 
       Boolean validar=(Boolean) session.getAttribute("validacion");
      Boolean validarAdmin=(Boolean) session.getAttribute("validacionAdmin");
 	   %> 
     </head>
-        
-    <body id="shirt" class="template-search" >
 
-        <div id="shopify-section-header" class="shopify-section">
-            <div class="header__wrapper" data-section-id="header" data-section-type="header">
+    <body id="cloudkid-shop" class="template-index" >
 
-                <header class="site-header header--large" role="banner">
-                    <div class="wrapper">
-                        <div class="nav--desktop">
+        <div id="shopify-section-header" class="shopify-section"><div class="header__wrapper" data-section-id="header" data-section-type="header">
+
+                <header  class="site-header header--large" role="banner">
+                    <div    class="wrapper">
+                        <div   class="nav--desktop">
                             <div class="mobile-wrapper">
                                 <div class="header-cart__wrapper">
                                     <a href="/cart" class="CartToggle header-cart"></a>
-                                    <span class="header-cart__bubble cartCount hidden-count"></span>
+                                    <span class="header-cart__bubble cartCount"></span>
                                 </div>
-                                <div    class="imgcontainer">
+                                
+
+                                            <div    class="imgcontainer">
                                                 <a  href="Index">  <img style="width:25%; " src="img/geeklogo.png"   class="avatar"  > </a>
              </div>
+                             
                                 <a href class="menuToggle header-hamburger"></a>
                             </div>
-                            <div class="header-menu nav-wrapper">
+                            <div   class="header-menu nav-wrapper">
 
-                                                   <ul class="main-menu accessibleNav">
+                                <ul class="main-menu accessibleNav">
 
                                     <li class="child main-menu--active kids-0">
                                     <li class="child  kids-0"><a href="Catalog.jsp" class="nav-link">Catalog</a> </li>
@@ -100,6 +102,8 @@
                                     
                                 </ul>
                             </div>
+
+                        </div>
 
                         </div>
                         <div class="nav--mobile">

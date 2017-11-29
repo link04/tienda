@@ -1,8 +1,16 @@
 
 <!doctype html>
-
+<%@page import="java.util.logging.Logger"%>
+<%@page import="java.util.logging.Level"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="Datos.Productos"%>
+<%@page import="java.sql.ResultSet" %>
+<%@page import="Datos.Productos"%>
+<%@page import="Conexion.Conectar"%>
+ <% Productos product = new Productos(); %>
 <html class="no-js"> <!--<![endif]-->
-       <link src="img/favicon.ico" rel="icon"  />
+     
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAADr6eYA//78AEAtGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEiIiIRIiIiEiIiIiIiIiIiIiIiIiIiIiIiIAAAAAIiIiIAERERESIiIgEiIiIRIiIiASIRIhEiISIBIhEiESIRIgEiERERIhIiASIiIiIiIiIBIiIiIiIiIgERERERIiIiIREREREiIiIiIiIiIiIiIiIiIiIiIiEiIiIRIiIiEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
   
     <head>
 
@@ -136,13 +144,10 @@
         </div>
 
         <main class="main-content" role="main">
-            
-            <div  class="index-sections">
-
-                <div class="w3-content w3-section" style="max-width:500px">
-            <img class="mySlides" src=" " style="width:100%">
-            <img class="mySlides" src=" " style="width:100%">
-            <img class="mySlides" src="  " style="width:100%">
+              <div class="w3-content w3-section" style="padding-left:10%;padding-right:10%;">
+            <img class="mySlides" src="img/hadme.jpg" style="width:100%;height:580px;">
+            <img class="mySlides" src="img/GEEK.jpg" style="width:100%;height:580px;">
+            <img class="mySlides" src="img/TP.jpg" style="width:100%;height:580px;">
           </div>
 
           <script>
@@ -158,9 +163,12 @@
               myIndex++;
               if (myIndex > x.length) {myIndex = 1}    
               x[myIndex-1].style.display = "block";  
-              setTimeout(carousel, 2000); // Change image every 2 seconds
+              setTimeout(carousel, 4000); // Change image every 2 seconds
           }
           </script>
+            <div  class="index-sections">
+
+              
                 <!-- BEGIN content_for_index -->
                 <div id="shopify-section-1502218631971" class="shopify-section">
                     </br>
@@ -174,81 +182,47 @@
 
                             <div class="grid-uniform image_autoheight_enable">
 
+                     
+                                 <% try {ResultSet rs =product.select3();while (rs.next()) {%>
                                 <div class="grid__item  small--one-whole medium--one-third large--one-third  product-grid-item">
                                     <a href="/collections/home-page-header-featured/products/white-shirt" class="grid__image">
-                                        <img src="//cdn.shopify.com/s/files/1/2007/6181/products/White-Shirt-Big-Smile_700x.jpg?v=1502220649" alt="White Shirt (Print)">
+                                       <%= rs.getString("image") %>
                                     </a>
                                     <div class="figcaption hover text-center">
                                         <a href="/collections/home-page-header-featured/products/white-shirt">
                                             <p class="h6 name_wrapper">
-                                                White Shirt (Print)
+                                                 <%=rs.getString("descripcion")%>
                                             </p>
                                             <p class="price_wrapper">
                                                 <span class="price">
 
-                                                    <span class="money">$25.00</span>
+                                                    <span class="money">$<%=rs.getString("precio")%> </span>
                                                 </span>
 
                                             </p>
                                         </a>
                                     </div>
-                                </div>
-
-                                <div class="grid__item  small--one-whole medium--one-third large--one-third  product-grid-item">
-                                    <a href="/collections/home-page-header-featured/products/sweatshirt-grey" class="grid__image">
-                                        <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Gray-Sweater_700x.jpg?v=1501979643" alt="Ash Gray Sweatshirt">
-                                    </a>
-                                    <div class="figcaption hover text-center">
-                                        <a href="/collections/home-page-header-featured/products/sweatshirt-grey">
-                                            <p class="h6 name_wrapper">
-                                                Ash Gray Sweatshirt
-                                            </p>
-                                            <p class="price_wrapper">
-                                                <span class="price">
-
-                                                    <span class="money">$40.00</span>
-                                                </span>
-
-                                            </p>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="grid__item  small--one-whole medium--one-third large--one-third  product-grid-item">
-                                    <a href="/collections/home-page-header-featured/products/hoodie-black" class="grid__image">
-                                        <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Black-Hoodie_700x.jpg?v=1501979373" alt="Black Hoodie">
-                                    </a>
-                                    <div class="figcaption hover text-center">
-                                        <a href="/collections/home-page-header-featured/products/hoodie-black">
-                                            <p class="h6 name_wrapper">
-                                                Black Hoodie
-                                            </p>
-                                            <p class="price_wrapper">
-                                                <span class="price">
-
-                                                    <span class="money">$50.00</span>
-                                                </span>
-
-                                            </p>
-                                        </a>
-                                    </div>
-                                </div>
-
+                               </div>
+                                    <%}} catch (SQLException ex) {System.out.println("se jodio esto");  } %>
+                         
                             </div>
 
                         </div>
                     </div>
 
-                </div><div id="shopify-section-1497828797230" class="shopify-section">
+                </div>
+                                    
+                    <div id="shopify-section-1497828797230" class="shopify-section">
 
                     <div class="homepage-product product-section homepage--white" id="ProductSection-1497828797230" data-section-id="1497828797230" data-section-type="product" data-image-zoom-enable="false">
 
                         <!-- /snippets/product.liquid -->
+                        <% try {ResultSet rs =product.selectRand();while (rs.next()) {%>
                         <div itemscope itemtype="http://schema.org/Product" class="product-page">
                             <div class="wrapper">
 
-                                <meta itemprop="url" content="https://cloudkid.shop/products/cloudkid-necklace">
-                                <meta itemprop="image" content="//cdn.shopify.com/s/files/1/2007/6181/products/Screen_Shot_2017-05-15_at_22.49.31_grande.png?v=1494881606">
+                                <meta itemprop="url" content=" ">
+                                <meta itemprop="image" content=" ">
 
                                 <div class="grid product-single">
                                     <div class="grid__item large--two-thirds text-center">
@@ -256,10 +230,8 @@
 
 
                                             <div class="product__photo"  data-thumb="//cdn.shopify.com/s/files/1/2007/6181/products/Screen_Shot_2017-05-15_at_22.49.31_small_cropped.png?v=1494881606">
-                                                <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Screen_Shot_2017-05-15_at_22.49.31_1024x1024.png?v=1494881606" alt=""
-
-                                                     data-image-id="22214183043"
-                                                     class="ProductImg-1497828797230">
+                                                
+                                                <%= rs.getString("image") %> 
 
                                             </div>
 
@@ -267,28 +239,25 @@
                                         <div id="ProductThumbs-1497828797230" class="product__thumbs--square"></div>
                                     </div>
 
+                                    
+                                    
                                     <div class="grid__item large--one-third" id="productInfo-1497828797230">
                                         <div class="text-center">
                                             <h5 class="product__price uppercase h5">
-                                                <span class="money"><span id="ProductPrice-1497828797230">$29.00</span></span>
+                                                <span class="money"><span id="ProductPrice-1497828797230">$<%=rs.getString("precio")%> </span></span>
 
-                                                <p class="small compare-at em" id="ComparePriceWrapper-1497828797230" style="display: none">
-                                                    <span class="money"><span id="ComparePrice-1497828797230">$0.00</span></span>
-                                                </p>
                                             </h5>
 
-                                            <h1 itemprop="name" class="h2">CloudKid Necklace</h1>
+                                            <h1 itemprop="name" class="h2"><%=rs.getString("descripcion")%></h1>
 
                                             <div class="product-description rte" itemprop="description">
                                                 <meta charset="utf-8">
                                                 <div>
                                                     <meta charset="utf-8">
-                                                    <p>Stainless Steel CloudKid Necklace + Pendant<br><br>Necklace is 560mm long and 25mm thick<br>Pendant is 35mm x 30mm</p>
-                                                    <p>International Shipping<br>(Free stickers included)</p>
+                                                    <p>Want to see more?</p>
                                                 </div>
                                                 <div></div>
-                                                <h2><span style="color: #000000;"><span style="font-size: xx-large;"><strong><span size="6">51<br></span></strong></span>Sold of 100</span></h2>
-                                                <p> </p>
+                                               
                                             </div>
 
                                         </div>
@@ -304,15 +273,11 @@
                                                                <select name="id" id="ProductSelect-1497828797230" data-section="1497828797230" class="product-form__variants no-js">
 
 
-                                                                   <option  selected="selected"  value="41114517827">
-                                                                       Default Title
-                                                                   </option>
-
                                                                </select>
 
-                                                               <div class="quantity-selector__wrapper text-center" id="Quantity-1497828797230">
+                                                             <!--  <div class="quantity-selector__wrapper text-center" id="Quantity-1497828797230">
                                                                    <label for="Quantity" class="quantity-selector uppercase">Quantity</label>
-                                                                   <input type="number" name="quantity" value="1" min="1" class="QuantityInput">
+                                                                   <input type="number" name="quantity" value="1" min="1" class="QuantityInput">-->
                                                                </div>
 
 
@@ -320,185 +285,54 @@
                                                                    <button type="submit" name="add" id="AddToCart-1497828797230" class="btn btn--large btn--full btn--clear uppercase addToCart" >
                                                                        <span id="AddToCartText-1497828797230">Add to Cart</span>
                                                                        <span class="unicode">&#x2022</span>
-                                                                       <span class="add-to-cart__price money"><span class="buttonPrice" id="ButtonPrice-1497828797230" data-item-price="2900">$29.00</span></span>
+                                                                       <span class="add-to-cart__price money"><span class="buttonPrice" id="ButtonPrice-1497828797230" data-item-price="2900">$<%=rs.getString("precio")%></span></span>
                                                                    </button>
                                                                </div>
                                                            </form>
                                             </div>
 
                                         </div>
-                                    </div>
+                                    
+                                
+                                
+                                
+                                </div>
                                 </div>
                             </div>
-
+                                     <%}} catch (SQLException ex) {System.out.println("se jodio esto");  } %>
                         </div>
 
-                    </div><div id="shopify-section-index-collection" class="shopify-section">
+                    </div>
+                    <div id="shopify-section-index-collection" class="shopify-section">
                         <div class="homepage-collection homepage--white" data-section-id="index-collection" data-section-type="index-collection">
                             <div class="wrapper">
 
                                 <div class="grid-uniform image_autoheight_enable">
 
-                                    <div class="grid__item  small--one-half medium--one-half large--one-quarter  product-grid-item">
-                                        <a href="/collections/number-1/products/black-shirt" class="grid__image">
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Black-Shirt-Big-Smile_700x.jpg?v=1501979051" alt="Black Shirt (Print)">
-                                        </a>
-                                        <div class="figcaption hover text-center">
-                                            <a href="/collections/number-1/products/black-shirt">
-                                                <p class="h6 name_wrapper">
-                                                    Black Shirt (Print)
-                                                </p>
-                                                <p class="price_wrapper">
-                                                    <span class="price">
-
-                                                        <span class="money">$25.00</span>
-                                                    </span>
-
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-
+                                              <% try {ResultSet rs =product.select8();while (rs.next()) {%>
                                     <div class="grid__item  small--one-half medium--one-half large--one-quarter  product-grid-item">
                                         <a href="/collections/number-1/products/cloudkid-shirt-black" class="grid__image">
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Black-Shirt-Small-Smile_700x.jpg?v=1501979466" alt="Black Shirt (Stitch)">
+                                               
+                                                <%= rs.getString("image") %>
+                                                          
                                         </a>
                                         <div class="figcaption hover text-center">
                                             <a href="/collections/number-1/products/cloudkid-shirt-black">
                                                 <p class="h6 name_wrapper">
-                                                    Black Shirt (Stitch)
+                                                    <%=rs.getString("descripcion")%>
                                                 </p>
                                                 <p class="price_wrapper">
                                                     <span class="price">
 
-                                                        <span class="money">$25.00</span>
+                                                        <span class="money">$<%=rs.getString("precio")%></span>
                                                     </span>
 
                                                 </p>
                                             </a>
                                         </div>
                                     </div>
-
-                                    <div class="grid__item  small--one-half medium--one-half large--one-quarter  product-grid-item">
-                                        <a href="/collections/number-1/products/white-shirt" class="grid__image">
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/products/White-Shirt-Big-Smile_700x.jpg?v=1502220649" alt="White Shirt (Print)">
-                                        </a>
-                                        <div class="figcaption hover text-center">
-                                            <a href="/collections/number-1/products/white-shirt">
-                                                <p class="h6 name_wrapper">
-                                                    White Shirt (Print)
-                                                </p>
-                                                <p class="price_wrapper">
-                                                    <span class="price">
-
-                                                        <span class="money">$25.00</span>
-                                                    </span>
-
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="grid__item  small--one-half medium--one-half large--one-quarter  product-grid-item">
-                                        <a href="/collections/number-1/products/cloudkid-shirt-white" class="grid__image">
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/products/White-Shirt-Small-Smile_700x.jpg?v=1501979611" alt="White Shirt (Stitch)">
-                                        </a>
-                                        <div class="figcaption hover text-center">
-                                            <a href="/collections/number-1/products/cloudkid-shirt-white">
-                                                <p class="h6 name_wrapper">
-                                                    White Shirt (Stitch)
-                                                </p>
-                                                <p class="price_wrapper">
-                                                    <span class="price">
-
-                                                        <span class="money">$25.00</span>
-                                                    </span>
-
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="grid__item  small--one-half medium--one-half large--one-quarter  product-grid-item">
-                                        <a href="/collections/number-1/products/sweatshirt-grey" class="grid__image">
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Gray-Sweater_700x.jpg?v=1501979643" alt="Ash Gray Sweatshirt">
-                                        </a>
-                                        <div class="figcaption hover text-center">
-                                            <a href="/collections/number-1/products/sweatshirt-grey">
-                                                <p class="h6 name_wrapper">
-                                                    Ash Gray Sweatshirt
-                                                </p>
-                                                <p class="price_wrapper">
-                                                    <span class="price">
-
-                                                        <span class="money">$40.00</span>
-                                                    </span>
-
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="grid__item  small--one-half medium--one-half large--one-quarter  product-grid-item">
-                                        <a href="/collections/number-1/products/grey-hoodie" class="grid__image">
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Gray-Hoodie_700x.jpg?v=1501979336" alt="Ash Gray Hoodie">
-                                        </a>
-                                        <div class="figcaption hover text-center">
-                                            <a href="/collections/number-1/products/grey-hoodie">
-                                                <p class="h6 name_wrapper">
-                                                    Ash Gray Hoodie
-                                                </p>
-                                                <p class="price_wrapper">
-                                                    <span class="price">
-
-                                                        <span class="money">$50.00</span>
-                                                    </span>
-
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="grid__item  small--one-half medium--one-half large--one-quarter  product-grid-item">
-                                        <a href="/collections/number-1/products/sweater-black" class="grid__image">
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Black-Sweater_700x.jpg?v=1501979706" alt="Black Sweatshirt">
-                                        </a>
-                                        <div class="figcaption hover text-center">
-                                            <a href="/collections/number-1/products/sweater-black">
-                                                <p class="h6 name_wrapper">
-                                                    Black Sweatshirt
-                                                </p>
-                                                <p class="price_wrapper">
-                                                    <span class="price">
-
-                                                        <span class="money">$40.00</span>
-                                                    </span>
-
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="grid__item  small--one-half medium--one-half large--one-quarter  product-grid-item">
-                                        <a href="/collections/number-1/products/hoodie-black" class="grid__image">
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Black-Hoodie_700x.jpg?v=1501979373" alt="Black Hoodie">
-                                        </a>
-                                        <div class="figcaption hover text-center">
-                                            <a href="/collections/number-1/products/hoodie-black">
-                                                <p class="h6 name_wrapper">
-                                                    Black Hoodie
-                                                </p>
-                                                <p class="price_wrapper">
-                                                    <span class="price">
-
-                                                        <span class="money">$50.00</span>
-                                                    </span>
-
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-
+                                    <%}} catch (SQLException ex) {  System.out.println("se jodio esto");} %>
+                               
                                 </div>
 
                             </div>

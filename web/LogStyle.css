@@ -112,9 +112,9 @@ button:hover {
     padding: 16px;
 }
 .container2 {
-    padding-top:20px;
-    padding-left:20px;
-    margin-right:350px;
+    padding-right:10%;
+    padding-left:10%;
+    margin:5px;
 }
 span.psw {
     float: right;
@@ -152,7 +152,7 @@ span.psw {
     background-color:#FFF;
     margin: 1% auto 8% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */
+    width: 30%; /* Could be more or less, depending on screen size */
     height:5%;
  
 }
