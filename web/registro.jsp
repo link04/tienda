@@ -17,7 +17,9 @@
          <link href="Style.css" rel="stylesheet" type="text/css" />
           <link href="LogStyle.css" rel="stylesheet"> 
 
-
+  
+                                    
+                                   
     </head>
     <body>
         <main>

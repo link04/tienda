@@ -152,6 +152,21 @@ public class Productos {
         ResultSet rs = cx.getDatos(com);
         return rs;
     }
+     public ResultSet select3() {
+        String com = "Select * from producto order by idProd desc LIMIT 3"; //OJO A LA MALDITA TABLA
+        ResultSet rs = cx.getDatos(com);
+        return rs;
+    }
+      public ResultSet select8() {
+        String com = "Select * from producto order by idProd asc LIMIT 8"; //OJO A LA MALDITA TABLA
+        ResultSet rs = cx.getDatos(com);
+        return rs;
+    }
+       public ResultSet selectRand() {
+        String com = "Select * from producto ORDER BY RAND() LIMIT 1"; //OJO A LA MALDITA TABLA
+        ResultSet rs = cx.getDatos(com);
+        return rs;
+    }
 
     public ResultSet popo(String s) {
 

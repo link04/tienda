@@ -54,10 +54,11 @@
         <meta name="theme-color" content="#585e71">
 
         <!-- CSS ================================================================== -->
-        <link href="Style2.css" rel="stylesheet" type="text/css" media="all" />
-         <link href="Style.css" rel="stylesheet" type="text/css" media="all" />
-         
-       
+    <link href="Style2.css" rel="stylesheet" type="text/css"  />
+         <link href="Style.css" rel="stylesheet" type="text/css" />
+          <link href="LogStyle.css" rel="stylesheet"> 
+        <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAADr6eYA//78AEAtGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEiIiIRIiIiEiIiIiIiIiIiIiIiIiIiIiIiIAAAAAIiIiIAERERESIiIgEiIiIRIiIiASIRIhEiISIBIhEiESIRIgEiERERIhIiASIiIiIiIiIBIiIiIiIiIgERERERIiIiIREREREiIiIiIiIiIiIiIiIiIiIiIiEiIiIRIiIiEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+  
            <link rel="stylesheet" media="all" href="Search.css "/>
         <meta name="shopify-checkout-api-token" content="3969cb5c7388f03fd26caa814ec0b6e2">
 
@@ -131,7 +132,7 @@
                                     <li class="child main-menu--active kids-0">
                                     <li class="child  kids-0"><a href="Catalog.jsp" class="nav-link">Catalog</a> </li>
                                     <li><a href="SearchIndex.jsp">Search</a></li>
-                                    <li class="cart-text-link"> <a href="/cart" class="CartToggle"> Cart <span class="cartCost "> <span class="money"> </span> </span></a></li>
+                                    <li class="cart-text-link"> <a href="Cart.jsp" class="CartToggle"> Cart <span class="cartCost "> <span class="money"> </span> </span></a></li>
                                 
                                 <% if(validar==null && validarAdmin==null ){ %>
                                 <li ><a href="LogIn.jsp">Log In</a></li>
@@ -214,7 +215,7 @@
     <div class="grid">
         
 
-        <h1 class="h2 title text-center">Tu carrito</h1>
+        <h1 class="h2 title text-center">Your Car</h1>
             <!-- /snippets/search-bar.liquid -->
             <hr>
             <form action="./Search" method="post" class="input-group search-bar" role="search" >
@@ -274,7 +275,7 @@
                         %>
                         <form action="./Search" method="post" class="input-group search-bar" role="search" >
 <div class="container1">
-                    <button type="button" class="cancelbtn" ><a href="Index" style="text-decoration:none;color:black">Cancel</a></button>
+                    <button type="button" ><a href="Index" style="text-decoration:none;color:white">Cancel</a></button>
                 </div>
             </form>
                         
@@ -294,18 +295,7 @@
 
         <div class="grid footer-secondary-wrapper">
             <ul class="footer-secondary grid__item inline-list">
-                <li><a href="https://cloudkid.shop" itemprop="url">&copy; CloudStore 2017</a></li>
-
-                <li><a href="/search">Search</a></li>
-
-                <li><a href="/pages/terms">Terms</a></li>
-
-                <li><a href="/pages/contact-imprint">Contact (Imprint)</a></li>
-
-            </ul>
-
-            <ul class="footer-payment payment-icons grid__item inline-list">
-
+           
                 <li>
                     <span class="icon-fallback-text">
                         <span class="icon icon-american_express" aria-hidden="true"></span>

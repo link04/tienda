@@ -26,7 +26,9 @@
             });
 //]]>
         </script>
-
+        
+                 <% Boolean validarAdmin=(Boolean) session.getAttribute("validacion");
+	         if(validarAdmin==null){ response.sendRedirect("Index");}%> 
 
     </head>
     <body>
@@ -57,9 +59,7 @@
                     <label><b>Size</b></label>
                     <input type="text" placeholder="Enter Size XS, S, M, L, XL, XXL" autocomplete="off" name="size" maxlength="3" required>
 
-                    <label><b>Quantity</b></label>
-                    <input type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off" placeholder="Enter Quantity" name="cantidad" required>
-
+                    
                     <label><b>Price</b></label>
                     <input type="text"  autocomplete="off" placeholder="Enter Price" name="precio" required>
                     <label><b>Imagen</b></label>

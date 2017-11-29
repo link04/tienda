@@ -43,7 +43,7 @@ public class ProductPost extends HttpServlet {
     String descripcion1;
     String size1;
     String color1;
-    int cantidad1;
+
     double precio1;
     String image1;
     String filePath;
@@ -95,7 +95,7 @@ public class ProductPost extends HttpServlet {
         descripcion1 = request.getParameter("descripcion");
         size1 = request.getParameter("size");
         color1 = request.getParameter("color");
-        cantidad1 = Integer.parseInt(request.getParameter("cantidad"));
+    
         precio1 = Double.parseDouble(request.getParameter("precio"));
         System.out.println(descripcion1 + " " + image1);
         
@@ -103,7 +103,7 @@ public class ProductPost extends HttpServlet {
         p.setDescripcion(descripcion1);
         p.setSize(size1);
         p.setColor(color1);
-        p.setCantidad(cantidad1);
+  
         p.setPrecio(precio1);
         p.setImage(image1);
         
