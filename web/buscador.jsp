@@ -201,7 +201,7 @@
         <main class="main-content" role="main">
 
 
-<div class="wrapper page-margin">
+<div class="wrapper page-margin" Style="padding-right:22%;padding-left:22%; "> 
     <div class="grid">
         
 <%Object object = request.getAttribute("search1");
@@ -209,7 +209,7 @@
                     String convertedToString = String.valueOf(object);%>
         <h1 class="h2 title text-center">Your search for <%=  convertedToString %> revealed the following:</h1>
             <!-- /snippets/search-bar.liquid -->
-            <form action="./Search" method="post" class="input-group search-bar" role="search">
+            <form action="./Search" method="post" class="input-group search-bar" role="search" >
 
                 <input type="search" name="search"  placeholder="Search our store" class="input-group-field" aria-label="Search our store">
                 <span class="input-group-btn">
@@ -237,29 +237,31 @@
                 while(rs.next()){%>
                        
                     <div   class="grid">
-                         <div Style="height:180px;width:180px;" class="grid__item one-sixth">
+                         <div Style="height:100px;width:110px;" class="grid__item one-sixth">
                     <a  href="/products/black-shirt" >
                         <%= rs.getString("image") %> 
                     </a>
                 </div>
-                <div class="grid__item five-sixths">
+                    <div class="grid__item five-sixths" >
 
-                    <p class="h3--body"><a href="/products/black-shirt" title=""> <%=rs.getString("descripcion")%> .</a></p>
+                    <p class="h3--body"><a href="/products/black-shirt" title="" > <%=rs.getString("descripcion")%> .</a></p>
 
                     <h5 itemprop="price">
                         <span class="money">$ <%=rs.getString("precio")%> </span>
                     </h5>
 
-                    <p>  <%=rs.getString("color")%></p>
-                    <p> <%=rs.getString("size")%> </p>
+                    <p> <%=rs.getString("size")%> <%=rs.getString("color")%></p>
+                    
                 </div>
-                    <hr>
+                    
+                     
             </div>
-                               <% }
+                    <hr>
+                      <% }
                 
                          } catch (SQLException ex) {
                           System.out.println("se jodio esto");  } %>
-             <% } %>   
+             <% } %>           
             
         
     </div>
