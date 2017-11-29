@@ -45,16 +45,18 @@
         <meta name="theme-color" content="#585e71">
 
         <!-- CSS ================================================================== -->
-        <link href="//cdn.shopify.com/s/files/1/2007/6181/t/10/assets/style.scss.css?8463528491638618342" rel="stylesheet" type="text/css" media="all" />
-
-        <script src="//cdn.shopify.com/s/files/1/2007/6181/t/10/assets/webfont.js?8463528491638618342" type="text/javascript"></script>
-
-        <link rel="stylesheet" media="all" href="//cdn.shopify.com/s/global/search.css?dd8b2eeb5d4c152c688a9c680cbf51f3026b82bd" />
+        <link href="Style2.css" rel="stylesheet" type="text/css" media="all" />
+         <link href="Style.css" rel="stylesheet" type="text/css" media="all" />
+         
+       
            <link rel="stylesheet" media="all" href="Search.css "/>
         <meta name="shopify-checkout-api-token" content="3969cb5c7388f03fd26caa814ec0b6e2">
 
         <meta id="in-context-paypal-metadata" data-shop-id="20076181" data-environment="production" data-locale="en_US" data-merchant-id="3H8FPF22BP6KY" data-redirect-url="" />
-
+        <% 
+      Boolean validar=(Boolean) session.getAttribute("validacion");
+     Boolean validarAdmin=(Boolean) session.getAttribute("validacionAdmin");
+	   %> 
     </head>
     
  <!--    
@@ -108,46 +110,33 @@
                                     <a href="/cart" class="CartToggle header-cart"></a>
                                     <span class="header-cart__bubble cartCount hidden-count"></span>
                                 </div>
-                                <div class="logo-wrapper logo-wrapper--image">
-
-                                    <div class="h4 header-logo" itemscope itemtype="http://schema.org/Organization">
-                                         <a href="/" itemprop="url">
-
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x.png?v=1494894271"
-                                                 srcset="//cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x.png?v=1494894271 1x, //cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x@2x.png?v=1494894271 2x"
-                                                 alt="CloudStore"
-                                                 class="logo-image"
-                                                 itemprop="logo">
-                                        </a>
-
-
-                                    </div>
-
-                                </div>
+                                <div    class="imgcontainer">
+                                                <a  href="Index">  <img style="width:25%; " src="img/geeklogo.png"   class="avatar"  > </a>
+             </div>
                                 <a href class="menuToggle header-hamburger"></a>
                             </div>
-                            <div class="header-menu nav-wrapper">
+                             <div   class="header-menu nav-wrapper">
 
                                 <ul class="main-menu accessibleNav">
 
-                                    <li class="child  kids-0">
-                                        <a href="Index" class="nav-link">Home</a>
+                                    <li class="child main-menu--active kids-0">
+                                    <li class="child  kids-0"><a href="Catalog.jsp" class="nav-link">Catalog</a> </li>
+                                    <li><a href="SearchIndex.jsp">Search</a></li>
+                                    <li class="cart-text-link"> <a href="/cart" class="CartToggle"> Cart <span class="cartCost "> <span class="money"> </span> </span></a></li>
+                                
+                                <% if(validar==null && validarAdmin==null ){ %>
+                                <li ><a href="LogIn.jsp">Log In</a></li>
+                                
+                                <%}
+                                  else if(validar==null && validarAdmin!=null ) { %> 
+                                  <li><a href="Productos.jsp">Add Product</a></li> 
+                                  <li><a  href="LogOut">Log Out</a></li> 
+                               
+                                  <% }  else if( validar!=null){ %>
+                                    <li><a href="LogOut">Log Out</a></li>
 
-                                    </li>
-
-                                    <li class="child  kids-0">
-                                        <a href="/collections/all" class="nav-link">Catalog</a>
-
-                                    </li>
-
-
-
-                                    <li class="cart-text-link">
-                                        <a href="/cart" class="CartToggle">
-                                            Cart
-                                            <span class="cartCost  hidden-count ">(<span class="money">$0.00</span>)</span>
-                                        </a>
-                                    </li>
+                                   <%}%>   
+                                    
                                 </ul>
                             </div>
 
@@ -215,8 +204,10 @@
 <div class="wrapper page-margin">
     <div class="grid">
         
-
-        <h1 class="h2 title text-center">Your search for <%= request.getParameter("search1")%> revealed the following:</h1>
+<%Object object = request.getAttribute("search1");
+                    
+                    String convertedToString = String.valueOf(object);%>
+        <h1 class="h2 title text-center">Your search for <%=  convertedToString %> revealed the following:</h1>
             <!-- /snippets/search-bar.liquid -->
             <form action="./Search" method="post" class="input-group search-bar" role="search">
 
@@ -233,31 +224,34 @@
             <!---------------------------la shitttttttt------------------------------------------------------------------------------->
                                     
             
-          ${search1}
+        
                               <%
-                 System.out.println(request.getParameter("search1"));
-         String[] p = product.separarFrase(request.getParameter("search1")); 
+                 System.out.println(request.getAttribute("search1"));
+                 
+                   System.out.println(convertedToString); 
+         String[] p = product.separarFrase(convertedToString); 
           
         for (int i = 0; i < p.length; i++) {
             try { 
                 ResultSet rs = product.popo(p[i]);
                 while(rs.next()){%>
                        
-                    <div class="grid">
-                         <div class="grid__item one-sixth">
-                    <a href="/products/black-shirt" >
-                        <img Style="height:54px;width:54px;" src="<%= rs.getString("image") %> "  />
+                    <div   class="grid">
+                         <div Style="height:180px;width:180px;" class="grid__item one-sixth">
+                    <a  href="/products/black-shirt" >
+                        <%= rs.getString("image") %> 
                     </a>
                 </div>
                 <div class="grid__item five-sixths">
 
-                    <p class="h3--body"><a href="/products/black-shirt" title=""> <%=rs.getString("descripcion")%> , <%=rs.getString("size")%></a></p>
+                    <p class="h3--body"><a href="/products/black-shirt" title=""> <%=rs.getString("descripcion")%> .</a></p>
 
                     <h5 itemprop="price">
                         <span class="money">$ <%=rs.getString("precio")%> </span>
                     </h5>
 
                     <p>  <%=rs.getString("color")%></p>
+                    <p> <%=rs.getString("size")%> </p>
                 </div>
                     <hr>
             </div>

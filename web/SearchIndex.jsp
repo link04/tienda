@@ -51,7 +51,11 @@
         <meta name="shopify-checkout-api-token" content="3969cb5c7388f03fd26caa814ec0b6e2">
 
         <meta id="in-context-paypal-metadata" data-shop-id="20076181" data-environment="production" data-locale="en_US" data-merchant-id="3H8FPF22BP6KY" data-redirect-url="" />
-
+        
+        <% 
+      Boolean validar=(Boolean) session.getAttribute("validacion");
+     Boolean validarAdmin=(Boolean) session.getAttribute("validacionAdmin");
+	   %> 
     </head>
         
     <body id="shirt" class="template-search" >
@@ -67,46 +71,33 @@
                                     <a href="/cart" class="CartToggle header-cart"></a>
                                     <span class="header-cart__bubble cartCount hidden-count"></span>
                                 </div>
-                                <div class="logo-wrapper logo-wrapper--image">
-
-                                    <div class="h4 header-logo" itemscope itemtype="http://schema.org/Organization">
-                                         <a href="/" itemprop="url">
-
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x.png?v=1494894271"
-                                                 srcset="//cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x.png?v=1494894271 1x, //cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x@2x.png?v=1494894271 2x"
-                                                 alt="CloudStore"
-                                                 class="logo-image"
-                                                 itemprop="logo">
-                                        </a>
-
-
-                                    </div>
-
-                                </div>
+                                <div    class="imgcontainer">
+                                                <a  href="Index">  <img style="width:25%; " src="img/geeklogo.png"   class="avatar"  > </a>
+             </div>
                                 <a href class="menuToggle header-hamburger"></a>
                             </div>
                             <div class="header-menu nav-wrapper">
 
-                                <ul class="main-menu accessibleNav">
+                                                   <ul class="main-menu accessibleNav">
 
-                                    <li class="child  kids-0">
-                                        <a href="Index" class="nav-link">Home</a>
+                                    <li class="child main-menu--active kids-0">
+                                    <li class="child  kids-0"><a href="Catalog.jsp" class="nav-link">Catalog</a> </li>
+                                    <li><a href="SearchIndex.jsp">Search</a></li>
+                                    <li class="cart-text-link"> <a href="/cart" class="CartToggle"> Cart <span class="cartCost "> <span class="money"> </span> </span></a></li>
+                                
+                                <% if(validar==null && validarAdmin==null ){ %>
+                                <li ><a href="LogIn.jsp">Log In</a></li>
+                                
+                                <%}
+                                  else if(validar==null && validarAdmin!=null ) { %> 
+                                  <li><a href="Productos.jsp">Add Product</a></li> 
+                                  <li><a  href="LogOut">Log Out</a></li> 
+                               
+                                  <% }  else if( validar!=null){ %>
+                                    <li><a href="LogOut">Log Out</a></li>
 
-                                    </li>
-
-                                    <li class="child  kids-0">
-                                        <a href="/collections/all" class="nav-link">Catalog</a>
-
-                                    </li>
-
-
-
-                                    <li class="cart-text-link">
-                                        <a href="/cart" class="CartToggle">
-                                            Cart
-                                            <span class="cartCost  hidden-count ">(<span class="money">$0.00</span>)</span>
-                                        </a>
-                                    </li>
+                                   <%}%>   
+                                    
                                 </ul>
                             </div>
 
