@@ -65,7 +65,21 @@ public class Conectar {
 		}
 		return data;
 	}
-	
+	public int contarFilas(String com){
+		 try {
+			 this.con();
+			 this.data = this.consulta.executeQuery(com);
+			 int contador = 0;
+			 while(data.next()){ //recorre todo el resulset
+				 contador++;	//sumara las veces que haya registros
+			 }
+			 return contador; //devuelve cantidad de registros
+		} catch (Exception e) {
+			System.out.println("Error al contar registros "+e.getMessage());
+			System.out.println(com);
+			return 0;
+		}		 
+	 }
 	
 }
 
