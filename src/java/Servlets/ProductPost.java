@@ -116,6 +116,7 @@ public class ProductPost extends HttpServlet {
                     item.write(file);
                      }
                   }
+           
       //cada uno funciona por separado pero no juntos 
       
                      mrequest = new MultipartFormDataRequest(request);

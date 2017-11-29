@@ -3,9 +3,6 @@
     Created on : 28-nov-2017, 17:14:02
     Author     : Paul
 --%>
-<%@page import="java.util.logging.Logger"%>
-<%@page import="java.util.logging.Level"%>
-<%@page import="java.sql.SQLException"%>
 <%@page import="Datos.Productos"%>
 <%@page import="java.sql.ResultSet" %>
 <%@page import="Datos.Productos"%>
@@ -56,45 +53,7 @@
         <meta id="in-context-paypal-metadata" data-shop-id="20076181" data-environment="production" data-locale="en_US" data-merchant-id="3H8FPF22BP6KY" data-redirect-url="" />
 
     </head>
-    
- <!--    
-   
-       int pg = 0; 
-       if (request.getParameter("pg") == null)
-        //if (request.getParameter("pg") == null)
-        {
-            pg = 1;
-        } else {
-            pg = Integer.valueOf(request.getParameter("pg"));
-        }
-        String search1 =  String.valueOf(request.getAttribute("search1"));
-  
-        int numreg =  product.popo(search1).getRow();
         
-        Double parseador = Double.valueOf(numreg);
-        
-        Double numpg = Math.ceil(parseador/6); //numero de paginas a mostrar
-        
-        //calcular el inicio del array.
-        int inipg = 0; //var inicio del array.
-        int r = (pg-1)%6;
-        if(r == 0)
-        {
-            inipg = pg - 1;
-        } else {
-            inipg = ((pg - 1) / 6) * 6;
-        }
-
-        for(int j = inipg; j < 6 + inipg ;j++)
-        {
-            if(j < numpg)
-            {
-        %>
-      
-        <a href="?pg=">  </a>
-     
-       
-        -->
     <body id="shirt" class="template-search" >
 
         <div id="shopify-section-header" class="shopify-section">
@@ -213,62 +172,24 @@
 
 
 <div class="wrapper page-margin">
+ 
     <div class="grid">
-        
-
-        <h1 class="h2 title text-center">Your search for <%= request.getParameter("search1")%> revealed the following:</h1>
+      
+        <h1 class="h2 title text-center">SEARCH FOR PRODUCTS ON OUR SITE</h1>
             <!-- /snippets/search-bar.liquid -->
-            <form action="./Search" method="post" class="input-group search-bar" role="search">
+            <form Style="padding-right:22%;padding-left:22%;" action="./Search" method="post" class="input-group search-bar" role="search">
 
-                <input type="search" name="search"  placeholder="Search our store" class="input-group-field" aria-label="Search our store">
+                <input   type="search" name="search"  placeholder="Search our store" class="input-group-field" aria-label="Search our store">
                 <span class="input-group-btn">
-                    <button type="submit" class="btn icon-fallback-text">
+                    <button  type="submit" class="btn icon-fallback-text">
                         <span class="icon icon-search" aria-hidden="true"></span>
                         <span class="fallback-text">Search</span>
                     </button>
                 </span>
             </form>
-            <!---------------------------la shitttttttt------------------------------------------------------------------------------->
-            <!---------------------------la shitttttttt------------------------------------------------------------------------------->
-            <!---------------------------la shitttttttt------------------------------------------------------------------------------->
-                                    
-            
-          ${search1}
-                              <%
-                 System.out.println(request.getParameter("search1"));
-         String[] p = product.separarFrase(request.getParameter("search1")); 
-          
-        for (int i = 0; i < p.length; i++) {
-            try { 
-                ResultSet rs = product.popo(p[i]);
-                while(rs.next()){%>
-                       
-                    <div class="grid">
-                         <div class="grid__item one-sixth">
-                    <a href="/products/black-shirt" >
-                        <img Style="height:54px;width:54px;" src="<%= rs.getString("image") %> "  />
-                    </a>
-                </div>
-                <div class="grid__item five-sixths">
-
-                    <p class="h3--body"><a href="/products/black-shirt" title=""> <%=rs.getString("descripcion")%> , <%=rs.getString("size")%></a></p>
-
-                    <h5 itemprop="price">
-                        <span class="money">$ <%=rs.getString("precio")%> </span>
-                    </h5>
-
-                    <p>  <%=rs.getString("color")%></p>
-                </div>
-                    <hr>
-            </div>
-                               <% }
-                
-                         } catch (SQLException ex) {
-                          System.out.println("se jodio esto");  } %>
-             <% } %>   
-            
-        
+           
     </div>
+    
 </div>
 
 </main>

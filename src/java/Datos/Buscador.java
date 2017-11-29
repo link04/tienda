@@ -14,11 +14,10 @@ import java.sql.SQLException;
  */
 public class Buscador {
     
-    
      public static void main(String[] args) throws SQLException {
         Productos n = new Productos();
         
-         String[] p = n.separarFrase("blanca abrigo batman sudadera"); 
+         String[] p = n.separarFrase(" "); 
         
         for (int i = 0; i < p.length; i++) {
             ResultSet rs = n.popo(p[i]); 

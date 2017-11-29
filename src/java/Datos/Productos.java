@@ -7,7 +7,11 @@ package Datos;
 
 import java.sql.ResultSet;
 import Conexion.Conectar;
+import com.mysql.jdbc.PreparedStatement;
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
     
 /**
  *
@@ -154,6 +158,13 @@ public class Productos {
         return rs;
         
     }
+     public ResultSet popoCotize(String s,int pagina ,int numeroPagina){
+        
+        String com="Select * from producto where descripcion like '%"+s+"%' DESC LIMIT "+ (pagina-1)*numeroPagina +" , "+ numeroPagina +""; //OJO A LA MALDITA TABLA
+        ResultSet rs = cx.getDatos(com);
+        return rs;
+        
+    }
     
     
     public String[] separarFrase(String s) {
@@ -182,5 +193,8 @@ public class Productos {
         }
         return partes; // Devolvemos las partes
     }
+    
+ 
+     
     
 }
