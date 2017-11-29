@@ -120,7 +120,7 @@
                                     <li class="child main-menu--active kids-0">
                                     <li class="child  kids-0"><a href="Catalog.jsp" class="nav-link">Catalog</a> </li>
                                     <li><a href="SearchIndex.jsp">Search</a></li>
-                                    <li class="cart-text-link"> <a href="/cart" class="CartToggle"> Cart <span class="cartCost "> <span class="money"> </span> </span></a></li>
+                                    <li class="cart-text-link"> <a href="Cart.jsp" class="CartToggle"> Cart <span class="cartCost "> <span class="money"> </span> </span></a></li>
                                 
                                 <% if(validar==null && validarAdmin==null ){ %>
                                 <li ><a href="LogIn.jsp">Log In</a></li>
