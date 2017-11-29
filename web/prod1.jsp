@@ -5,6 +5,11 @@
 --%>
 
 
+<%@page import="Conexion.Conectar"%>
+<%@page import="Datos.Productos"%>
+<%@page import="java.sql.ResultSet"%>
+<% Productos pp = new Productos(); %>
+<% Conectar cx = new Conectar(); %>
 <!doctype html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -87,8 +92,34 @@
         <!-- jQuery v2.2.3 ======================================================== -->
         <script src="//cdn.shopify.com/s/files/1/2007/6181/t/10/assets/jquery.min.js?2795278001627608730" type="text/javascript"></script>
 
+     <%
+                        int pg = 0;
+                        if (request.getParameter("prod") == null) {
+                            pg = 1;
+                        } else {
+                            pg = Integer.valueOf(request.getParameter("prod"));
+                        }
+                        int numreg = cx.contarFilas("Select * from producto");
+                        int numpg = numreg / 3;
 
+                  if (pg > 1) {%>
+                    <a href="?prod=<%=pg - 1%>"></a>
+                    <%}
+                        int inipg = 0;
+                        int r = (pg) % 10;
+                        for (int j = 0; j < 3; j++) {
+                    %>
+                    <a href="?prod=<%=j + 1%>"></a>
+                    <%
+            }
+            if (pg <= numpg) {%>
+                    <a href="?prod=<%=pg + 1%>"> </a><%}%>
+                    <%
+                        int i = (pg - 1) * 3;
+                        ResultSet rs = pp.paginarbprod(pg,3);
+                        while (rs.next()) {
 
+                    %>
 
 
         <!-- /snippets/fonts.liquid -->
@@ -112,6 +143,10 @@
 
         <style media="all">.additional-checkout-button{border:0 !important;border-radius:5px !important;display:inline-block;margin:0 0 10px;padding:0 24px !important;max-width:100%;min-width:150px !important;line-height:44px !important;text-align:center !important}.additional-checkout-button+.additional-checkout-button{margin-left:10px}.additional-checkout-button:last-child{margin-bottom:0}.additional-checkout-button span{font-size:14px !important}.additional-checkout-button img{display:inline-block !important;height:1.3em !important;margin:0 !important;vertical-align:middle !important;width:auto !important}@media (max-width: 500px){.additional-checkout-button{display:block;margin-left:0 !important;padding:0 10px !important;width:100%}}.additional-checkout-button--apple-pay{background-color:#000 !important;color:#fff !important;display:none;font-family:-apple-system, &#39;Helvetica Neue&#39;, sans-serif !important;min-width:150px !important;white-space:nowrap !important}.additional-checkout-button--apple-pay:hover,.additional-checkout-button--apple-pay:active,.additional-checkout-button--apple-pay:visited{color:#fff !important;text-decoration:none !important}.additional-checkout-button--apple-pay .additional-checkout-button__logo{background:-webkit-named-image(apple-pay-logo-white) center center no-repeat !important;background-size:auto 100% !important;display:inline-block !important;vertical-align:middle !important;width:3em !important;height:1.3em !important}@media (max-width: 500px){.additional-checkout-button--apple-pay{display:none}}.additional-checkout-button--paypal-express{background-color:#ffc439 !important}.additional-checkout-button--paypal{vertical-align:top;line-height:0 !important;margin:0 !important;padding:0 !important}.additional-checkout-button--amazon{background-color:#fad676 !important;position:relative !important}.additional-checkout-button--amazon .additional-checkout-button__logo{-webkit-transform:translateY(4px) !important;transform:translateY(4px) !important}.additional-checkout-button--amazon .alt-payment-list-amazon-button-image{max-height:none !important;opacity:0 !important;position:absolute !important;top:0 !important;left:0 !important;width:100% !important;height:100% !important}.additional-checkout-button-visually-hidden{border:0 !important;clip:rect(0, 0, 0, 0) !important;clip:rect(0 0 0 0) !important;width:1px !important;height:1px !important;margin:-2px !important;overflow:hidden !important;padding:0 !important;position:absolute !important}
         </style>
+               <% 
+      Boolean validar=(Boolean) session.getAttribute("validacion");
+     Boolean validarAdmin=(Boolean) session.getAttribute("validacionAdmin");
+	   %> 
     </head>
 
     <body id="ash-gray-sweatshirt" class="template-product" >
@@ -130,73 +165,38 @@
                                 </div>
                                 <div class="logo-wrapper logo-wrapper--image">
 
-                                    <div class="h4 header-logo" itemscope itemtype="http://schema.org/Organization">
-
-
-                                        <a href="/" itemprop="url">
-
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x.png?v=1494894271"
-                                                 srcset="//cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x.png?v=1494894271 1x, //cdn.shopify.com/s/files/1/2007/6181/files/Cloudkid_Face_Black_70ece400-d35e-46e7-859f-5beaac53b2eb_60x@2x.png?v=1494894271 2x"
-                                                 alt="CloudStore"
-                                                 class="logo-image"
-                                                 itemprop="logo">
-                                        </a>
-
-
-                                    </div>
+                                          <div    class="imgcontainer">
+                                                <a  href="Index">  <img style="width:25%; " src="img/geeklogo.png"   class="avatar"  > </a>
+             </div>
+                         
 
                                 </div>
                                 <a href class="menuToggle header-hamburger"></a>
                             </div>
-                            <div class="header-menu nav-wrapper">
+                            <div   class="header-menu nav-wrapper">
 
                                 <ul class="main-menu accessibleNav">
 
+                                    <li class="child main-menu--active kids-0">
+                                    <li class="child  kids-0"><a href="Catalog.jsp" class="nav-link">Catalog</a> </li>
+                                    <li><a href="SearchIndex.jsp">Search</a></li>
+                                    <li class="cart-text-link"> <a href="Cart.jsp" class="CartToggle"> Cart <span class="cartCost "> <span class="money"> </span> </span></a></li>
+                                
+                                <% if(validar==null && validarAdmin==null ){ %>
+                                <li ><a href="LogIn.jsp">Log In</a></li>
+                                
+                                <%}
+                                  else if(validar==null && validarAdmin!=null ) { %> 
+                                  <li><a href="Productos.jsp">Add Product</a></li> 
+                                  <li><a  href="LogOut">Log Out</a></li> 
+                               
+                                  <% }  else if( validar!=null){ %>
+                                    <li><a href="LogOut">Log Out</a></li>
 
-
-
-
-
-
-
-
-
-
-
-                                    <li class="child  kids-0">
-                                        <a href="/" class="nav-link">Home</a>
-
-                                    </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    <li class="child  kids-0">
-                                        <a href="/collections/all" class="nav-link">Catalog</a>
-
-                                    </li>
-
-
-
-                                    <li class="cart-text-link">
-                                        <a href="/cart" class="CartToggle">
-                                            Cart
-                                            <span class="cartCost  hidden-count ">(<span class="money">$0.00</span>)</span>
-                                        </a>
-                                    </li>
+                                   <%}%>   
+                                    
                                 </ul>
                             </div>
-
-                        </div>
                         <div class="nav--mobile">
                             <div class="mobile-wrapper">
                                 <div class="header-cart__wrapper">
@@ -288,7 +288,7 @@
                         <div class="wrapper">
 
                             <meta itemprop="url" content="https://cloudkid.shop/products/sweatshirt-grey">
-                            <meta itemprop="image" content="//cdn.shopify.com/s/files/1/2007/6181/products/Gray-Sweater_grande.jpg?v=1501979643">
+                            <meta itemprop="image" content="x">
 
 
 
@@ -298,11 +298,9 @@
                                     <div class="product__slides product-single__photos" id="ProductPhoto-product">
 
 
-                                        <div class="product__photo"  data-thumb="//cdn.shopify.com/s/files/1/2007/6181/products/Gray-Sweater_small_cropped.jpg?v=1501979643">
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Gray-Sweater_1024x1024.jpg?v=1501979643" alt=""
-
-                                                 data-image-id="23922025475"
-                                                 class="ProductImg-product">
+                                        <div class="product__photo"  data-thumb="">
+                                            <%=rs.getString("image")%>
+                                                 
 
                                         </div>
 
@@ -325,7 +323,7 @@
 
 
 
-                                        <h1 itemprop="name" class="h2">Ash Gray Sweatshirt</h1>
+                                        <h1 itemprop="name" class="h2"><%=rs.getString("nombre")%></h1>
 
 
 
@@ -340,8 +338,7 @@
 
                                         <div class="product-description rte" itemprop="description">
                                            
-                                            <p>Ash Grey Sweatshirt with black "CloudFace" embroidery<br><br>Made of 100% Cotton</p>
-                                            <p>International Shipping<br>(Free stickers included)</p>
+                                            <%=rs.getString("descripcion")%>
                                         </div>
 
                                     </div>
@@ -360,7 +357,7 @@
                                             <div class="selector-wrapper js">
                                                 <label for="precio" class="quantity-selector uppercase">Precio</label>
                                                 
-                                                <input type="text" name="precio" value="10" min="1" class="QuantityInput"  style="border: 0" readonly/>
+                                                <input type="text" name="precio" value="<%=rs.getString("precio")%>" min="1" class="QuantityInput"  style="border: 0" readonly/>
                                                 <label for="SingleOptionSelector-0">
                                                     Size
                                                 </label>
@@ -434,11 +431,15 @@
                                                 </button>
                                                 <label for="precio" class="quantity-selector uppercase">Precio</label>
                                                 <input type="hidden" name="accion" value="AnadirCarrito" />
-                                                <input type="text" name="id" value="3" min="3" class="QuantityInput"  style="border: 0" readonly/>
+                                                <input type="text" name="id" value="<%=rs.getInt("idProd")%>" min="3" class="QuantityInput"  style="border: 0" readonly/>
                                             </div>
                                         </form>
                                     </div>
 
+                                             <%
+                        i++;}
+                            cx.desconectar();
+                    %>
 
 
 
@@ -521,89 +522,7 @@
                     <div class="wrapper product__related">
                         <aside class="grid page-margin">
                             <div class="grid__item">
-                                <h3 class="home__subtitle">Related</h3>
-                                <div class="grid-uniform image_autoheight_enable">
-
-
-
-
-
-
-
-
-
-
-
-                                    <div class="grid__item   medium--one-half large--one-half  product-grid-item">
-                                        <a href="/collections/home-page-header-featured/products/white-shirt" class="grid__image">
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/products/White-Shirt-Big-Smile_900x.jpg?v=1502220649" alt="White Shirt (Print)">
-                                        </a>
-                                        <div class="figcaption hover text-center">
-                                            <a href="/collections/home-page-header-featured/products/white-shirt">
-                                                <p class="h6 name_wrapper">
-                                                    White Shirt (Print)
-                                                </p>
-                                                <p class="price_wrapper">
-                                                    <span class="price">
-
-                                                        <span class="money">$25.00</span>
-                                                    </span>
-
-
-
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                    <div class="grid__item   medium--one-half large--one-half  product-grid-item">
-                                        <a href="/collections/home-page-header-featured/products/hoodie-black" class="grid__image">
-                                            <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Black-Hoodie_900x.jpg?v=1501979373" alt="Black Hoodie">
-                                        </a>
-                                        <div class="figcaption hover text-center">
-                                            <a href="/collections/home-page-header-featured/products/hoodie-black">
-                                                <p class="h6 name_wrapper">
-                                                    Black Hoodie
-                                                </p>
-                                                <p class="price_wrapper">
-                                                    <span class="price">
-
-                                                        <span class="money">$50.00</span>
-                                                    </span>
-
-
-
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-
-
-
-
-
-
-
-                                </div>
-                            </div>
+                                
                         </aside>
                     </div>
 
