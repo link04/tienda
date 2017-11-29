@@ -126,7 +126,7 @@
                             </div>
                             <div    class="imgcontainer">
                                                 <a  href="Index">  <img style="width:25%; " src="img/geeklogo.png"   class="avatar"  > </a>
-             </div>
+             </div><!--jaja-->
                             <a href class="menuToggle header-hamburger"></a>
                         </div>
                         <div   class="header-menu nav-wrapper">
