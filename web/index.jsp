@@ -254,7 +254,7 @@
                                                 <meta charset="utf-8">
                                                 <div>
                                                     <meta charset="utf-8">
-                                                    <p>Want to see more?</p>
+                                                    
                                                 </div>
                                                 <div></div>
                                                
@@ -268,16 +268,13 @@
                                             <meta itemprop="price" content="29">
                                             <link itemprop="availability" href="http://schema.org/InStock">
 
-                                            <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm-{{ section.id }" data-section="1497828797230" class="product-form-1497828797230 product-form">
+                                            <form action="popo" method="post" id="AddToCartForm-{{ section.id }" data-section="1497828797230" class="product-form-1497828797230 product-form">
 
-                                                               <select name="id" id="ProductSelect-1497828797230" data-section="1497828797230" class="product-form__variants no-js">
+                                                              <input type="hidden" name="accion" value="AnadirCarrito" />
 
-
-                                                               </select>
-
-                                                             <!--  <div class="quantity-selector__wrapper text-center" id="Quantity-1497828797230">
+                                                               <div class="quantity-selector__wrapper text-center" id="Quantity-1497828797230">
                                                                    <label for="Quantity" class="quantity-selector uppercase">Quantity</label>
-                                                                   <input type="number" name="quantity" value="1" min="1" class="QuantityInput">-->
+                                                                   <input type="cantidad" name="quantity" value="1" min="1" class="QuantityInput">
                                                                </div>
 
 

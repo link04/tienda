@@ -246,5 +246,10 @@ public class Productos {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
+    public ResultSet paginarbprod(int pg, int numreg){
+	String com = "Select * from producto ORDER BY idProd DESC LIMIT "+(pg-1)*numreg+","+numreg;
+	ResultSet rs = cx.getDatos(com);
+	return rs;
+    }
 }
