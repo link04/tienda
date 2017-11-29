@@ -21,6 +21,7 @@ public class Productos {
 
     private int idProd;
     private String descripcion;
+    private String nombre;
     private String size;
     private String color;
     private int cantidad;
@@ -129,8 +130,9 @@ public class Productos {
     public void registrar_prod(Productos p) {
 
         cx.con(); //ABRIMOS LAS CONEXION
-        String com = "INSERT INTO producto (descripcion,size,color,cantidad,precio,image) "
-                + "VALUES ('" + p.getDescripcion() + "','"
+        String com = "INSERT INTO producto (nombre,descripcion,size,color,cantidad,precio,image) "
+                + "VALUES ('" + p.getNombre() + "','"
+                + p.getDescripcion() + "','"
                 + p.getSize() + "','"
                 + p.getColor() + "',"
                 + p.getCantidad() + ","
@@ -172,6 +174,7 @@ public class Productos {
         ResultSet rs = popoDamelo(s);
         while (rs.next()) {
             setIdProd(rs.getInt("IdProd"));
+            setNombre(rs.getString("nombre"));
             setDescripcion(rs.getString("descripcion"));
             setPrecio(rs.getDouble("precio"));
             setCantidad(rs.getInt("cantidad"));
@@ -213,6 +216,20 @@ public class Productos {
             partes[ind] += s.charAt(i); // Sino, agregamos el carácter a la palabra actual
         }
         return partes; // Devolvemos las partes
+    }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
 }

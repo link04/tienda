@@ -39,6 +39,7 @@ public class ProductPost extends HttpServlet {
     Conectar cx = new Conectar();
     Productos p = new Productos();
     // int idProd;
+    String nombre;
     String descripcion1;
     String size1;
     String color1;
@@ -89,13 +90,16 @@ public class ProductPost extends HttpServlet {
         processRequest(request, response);
 
         image1 = request.getParameter("foto");
+        
+        nombre = request.getParameter("nombre");
         descripcion1 = request.getParameter("descripcion");
         size1 = request.getParameter("size");
         color1 = request.getParameter("color");
         cantidad1 = Integer.parseInt(request.getParameter("cantidad"));
         precio1 = Double.parseDouble(request.getParameter("precio"));
         System.out.println(descripcion1 + " " + image1);
-
+        
+        p.setNombre(nombre);
         p.setDescripcion(descripcion1);
         p.setSize(size1);
         p.setColor(color1);

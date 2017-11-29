@@ -44,6 +44,10 @@
 
                     <label class="titleL"><b>Add Product</b></label>
                     </br>
+                    <label><b>Nombre</b></label>
+                    <input type="text" placeholder="Enter Product Name" autocomplete="off" name="nombre"  required  >
+
+                    
                     <label><b>Description</b></label>
                     <input type="text" placeholder="Enter Product Name" autocomplete="off" name="descripcion"  required  >
 

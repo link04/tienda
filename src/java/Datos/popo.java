@@ -89,17 +89,17 @@ public class popo extends HttpServlet {
         }
         //Obtenemos el producto que deseamos añadir al carrito
         Productos p = new Productos();
-        int n = Integer.parseInt(request.getParameter("txtCodigo"));
+        int n = Integer.parseInt(request.getParameter("id"));
         p.popoDameto(n);
         //Creamos un detalle para el carrtio
         DetalleVenta d = new DetalleVenta();
         //Obtenemos los valores de la caja de texto
-        d.setCodigoProducto(Integer.parseInt(request.getParameter("txtCodigo")));
+        d.setCodigoProducto(Integer.parseInt(request.getParameter("id")));
         d.setProducto(p);
         System.out.println(p.getDescripcion());
         System.out.println(p.getCantidad());
         System.out.println(p.getIdProd());
-        d.setCantidad(Double.parseDouble(request.getParameter("txtCantidad")));
+        d.setCantidad(Double.parseDouble(request.getParameter("cantidad")));
         //Calculamos el descuento, si es sub detalle es mayor a 50 se le hace
         //un descuento del 5% aca es donde se encuentra la logica del negocio
         double subTotal = p.getPrecio() * d.getCantidad();
@@ -131,7 +131,7 @@ public class popo extends HttpServlet {
         //Actualizamos la sesion del carrito de compras
         sesion.setAttribute("carrito", carrito);
         //Redireccionamos al formulario de culminar la venta
-        response.sendRedirect("registrarVenta.jsp");
+        response.sendRedirect("Cart.jsp");
     }
     //Metodo que sirve para registrar toda la venta en la base de datos
     private void registrarVenta(HttpServletRequest request, HttpServletResponse response)

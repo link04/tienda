@@ -434,7 +434,7 @@
                                                 </button>
                                                 <label for="precio" class="quantity-selector uppercase">Precio</label>
                                                 <input type="hidden" name="accion" value="AnadirCarrito" />
-                                                <input type="text" name="id" value="3" min="3" class="QuantityInput"  style="border: 0" readonly/>
+                                                <input type="text" name="id" value="2" min="" class="QuantityInput"  style="border: 0" readonly/>
                                             </div>
                                         </form>
                                     </div>
