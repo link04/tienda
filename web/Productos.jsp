@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : registro
     Created on : 23-nov-2017, 16:49:34
@@ -25,11 +26,11 @@
              <a  href="Index">  <img src="img/geeklogo.png"  class="avatar"  > </a>
              </div>
         
-                <form action="./ProductPost" method="post" enctype="multipart/form-data" class="modal-content2 animate" >
+                <form action="./ProductPost" method="post"  enctype="multipart/form-data" class="modal-content2 animate" >
                     
                      <div class="div3"> 
                           <label><b>Color</b></label>
-                        <input type="text" placeholder="Enter Product Color" name="color"  required  >
+                        <input type="text" placeholder="Enter Product Color" name="color" autocomplete="off" required  >
                         
                          <label><b>Product Image</b></label>
                                 <script type='text/javascript'>
@@ -70,7 +71,7 @@
                         <input type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off" placeholder="Enter Quantity" name="cantidad" required>
 
                         <label><b>Price</b></label>
-                        <input type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' autocomplete="off" placeholder="Enter Price" name="precio" required>
+                        <input type="text"  autocomplete="off" placeholder="Enter Price" name="precio" required>
 
                         <button type="submit" >Post Product</button>
                             ${uploaded}

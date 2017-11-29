@@ -42,13 +42,13 @@
         <script src="//cdn.shopify.com/s/files/1/2007/6181/t/10/assets/webfont.js?8463528491638618342" type="text/javascript"></script>
 
         <link rel="stylesheet" media="all" href="//cdn.shopify.com/s/global/search.css?dd8b2eeb5d4c152c688a9c680cbf51f3026b82bd" />
+           <link rel="stylesheet" media="all" href="Search.css "/>
         <meta name="shopify-checkout-api-token" content="3969cb5c7388f03fd26caa814ec0b6e2">
 
         <meta id="in-context-paypal-metadata" data-shop-id="20076181" data-environment="production" data-locale="en_US" data-merchant-id="3H8FPF22BP6KY" data-redirect-url="" />
 
 
-        <style media="all">.additional-checkout-button{border:0 !important;border-radius:5px !important;display:inline-block;margin:0 0 10px;padding:0 24px !important;max-width:100%;min-width:150px !important;line-height:44px !important;text-align:center !important}.additional-checkout-button+.additional-checkout-button{margin-left:10px}.additional-checkout-button:last-child{margin-bottom:0}.additional-checkout-button span{font-size:14px !important}.additional-checkout-button img{display:inline-block !important;height:1.3em !important;margin:0 !important;vertical-align:middle !important;width:auto !important}@media (max-width: 500px){.additional-checkout-button{display:block;margin-left:0 !important;padding:0 10px !important;width:100%}}.additional-checkout-button--apple-pay{background-color:#000 !important;color:#fff !important;display:none;font-family:-apple-system, &#39;Helvetica Neue&#39;, sans-serif !important;min-width:150px !important;white-space:nowrap !important}.additional-checkout-button--apple-pay:hover,.additional-checkout-button--apple-pay:active,.additional-checkout-button--apple-pay:visited{color:#fff !important;text-decoration:none !important}.additional-checkout-button--apple-pay .additional-checkout-button__logo{background:-webkit-named-image(apple-pay-logo-white) center center no-repeat !important;background-size:auto 100% !important;display:inline-block !important;vertical-align:middle !important;width:3em !important;height:1.3em !important}@media (max-width: 500px){.additional-checkout-button--apple-pay{display:none}}.additional-checkout-button--paypal-express{background-color:#ffc439 !important}.additional-checkout-button--paypal{vertical-align:top;line-height:0 !important;margin:0 !important;padding:0 !important}.additional-checkout-button--amazon{background-color:#fad676 !important;position:relative !important}.additional-checkout-button--amazon .additional-checkout-button__logo{-webkit-transform:translateY(4px) !important;transform:translateY(4px) !important}.additional-checkout-button--amazon .alt-payment-list-amazon-button-image{max-height:none !important;opacity:0 !important;position:absolute !important;top:0 !important;left:0 !important;width:100% !important;height:100% !important}.additional-checkout-button-visually-hidden{border:0 !important;clip:rect(0, 0, 0, 0) !important;clip:rect(0 0 0 0) !important;width:1px !important;height:1px !important;margin:-2px !important;overflow:hidden !important;padding:0 !important;position:absolute !important}
-        </style>
+      
     </head>
 
     <body id="shirt" class="template-search" >
@@ -175,11 +175,11 @@
                 <div class="grid">
                     <div class="grid__item large--two-thirds push--large--one-sixth">
 
-                        <h1 class="h2 title text-center">Your search for "shirt" revealed the following:</h1>
+                        <h1 class="h2 title text-center">Your search for <%  %> revealed the following:</h1>
                         <!-- /snippets/search-bar.liquid -->
                         <form action="/search" method="get" class="input-group search-bar" role="search">
 
-                            <input type="search" name="q" value="shirt" placeholder="Search our store" class="input-group-field" aria-label="Search our store">
+                            <input type="search" name="q"  placeholder="Search our store" class="input-group-field" aria-label="Search our store">
                             <span class="input-group-btn">
                                 <button type="submit" class="btn icon-fallback-text">
                                     <span class="icon icon-search" aria-hidden="true"></span>
@@ -189,10 +189,7 @@
                         </form>
 
                         <div class="grid">
-
-
-
-                            <div class="grid__item one-sixth">
+                                     <div class="grid__item one-sixth">
                                 <a href="/products/black-shirt" title="Black Shirt (Print)">
                                     <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Black-Shirt-Big-Smile_medium.jpg?v=1501979051" alt="Black Shirt (Print)" />
                                 </a>
@@ -205,7 +202,7 @@
 
 
                                 <h5 itemprop="price">
-                                    <span class="money">$25.00</span>
+                                    <span class="money">$<% %></span>
                                 </h5>
 
 
@@ -214,101 +211,10 @@
                                     Black shirt with white "CloudFace" printMade of 100% Cotton
                                     International Shipping(Free stickers included)</p>
                             </div>
-
+                                <hr>
                         </div>
 
-                        <hr>
-
-                        <div class="grid">
-
-
-
-                            <div class="grid__item one-sixth">
-                                <a href="/products/cloudkid-shirt-black" title="Black Shirt (Stitch)">
-                                    <img src="//cdn.shopify.com/s/files/1/2007/6181/products/Black-Shirt-Small-Smile_medium.jpg?v=1501979466" alt="Black Shirt (Stitch)" />
-                                </a>
-                            </div>
-                            <div class="grid__item five-sixths">
-
-
-                                <p class="h3--body"><a href="/products/cloudkid-shirt-black" title="">Black Shirt (Stitch)</a></p>
-
-
-
-                                <h5 itemprop="price">
-                                    <span class="money">$25.00</span>
-                                </h5>
-
-
-
-                                <p>
-                                    Black shirt with white "CloudFace" embroideryMade of 100% Cotton
-                                    International Shipping(Free stickers included)</p>
-                            </div>
-
-                        </div>
-
-                        <hr>
-
-                        <div class="grid">
-
-
-
-                            <div class="grid__item one-sixth">
-                                <a href="/products/white-shirt" title="White Shirt (Print)">
-                                    <img src="//cdn.shopify.com/s/files/1/2007/6181/products/White-Shirt-Big-Smile_medium.jpg?v=1502220649" alt="White Shirt (Print)" />
-                                </a>
-                            </div>
-                            <div class="grid__item five-sixths">
-
-
-                                <p class="h3--body"><a href="/products/white-shirt" title="">White Shirt (Print)</a></p>
-
-
-
-                                <h5 itemprop="price">
-                                    <span class="money">$25.00</span>
-                                </h5>
-
-
-
-                                <p>
-                                    White shirt with black "CloudFace" printMade of 100% Cotton
-                                    International Shipping(Free stickers included)</p>
-                            </div>
-
-                        </div>
-
-                        <hr>
-
-                        <div class="grid">
-
-
-
-                            <div class="grid__item one-sixth">
-                                <a href="/products/cloudkid-shirt-white" title="White Shirt (Stitch)">
-                                    <img src="//cdn.shopify.com/s/files/1/2007/6181/products/White-Shirt-Small-Smile_medium.jpg?v=1501979611" alt="White Shirt (Stitch)" />
-                                </a>
-                            </div>
-                            <div class="grid__item five-sixths">
-
-
-                                <p class="h3--body"><a href="/products/cloudkid-shirt-white" title="">White Shirt (Stitch)</a></p>
-
-
-
-                                <h5 itemprop="price">
-                                    <span class="money">$25.00</span>
-                                </h5>
-
-
-                                <p>
-                                    White shirt with black "CloudFace" embroideryMade of 100% Cotton
-                                    International Shipping(Free stickers included)</p>
-                            </div>
-
-                        </div>
-
+                      
                     </div>
                 </div>
             </div>
